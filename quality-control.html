@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Control Procedure - InspectoPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="image/INSPECTO PRO banner.png" class="logo">
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="#" onclick="goHome()"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+            </ul>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="account" id="account-btn">
+            <img src="image/user.png" class="account-icon">
+            <span>My Account</span>
+            <div class="dropdown" id="dropdown-menu">
+                <p><a href="profile.html">My Profile</a></p>
+                <p><a href="index.html">Logout</a></p>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2>Quality Control QC Procedure</h2>
+        
+        <!-- Action Buttons -->
+        <div>
+            <button class="action-btn" onclick="saveData()">Save</button>
+            <button class="action-btn" onclick="clearData()">Clear</button>
+        </div>
+
+        <div class="form-container" id="form">
+            <div class="form-group">
+                <label for="inspector-name">Inspector's Name:</label>
+                <input type="text" id="inspector-name">
+            </div>
+            <div class="form-group">
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location">
+            </div>
+            <div class="form-group">
+                <label for="inspection-time">Date and Time of Inspection:</label>
+                <input type="datetime-local" id="inspection-time">
+            </div>
+            
+            <table id="table">
+                <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Yes</th>
+                    <th>No</th>
+                    <th>Remarks</th>
+                </tr>
+                
+                <tr><th colspan="5">QC Planning and Documentation</th></tr>
+                <tr><td>1</td><td>Is there an approved Quality Control Plan (QCP) specific to the project?</td>
+                    <td><input type="radio" name="qcp_approved" value="yes"></td>
+                    <td><input type="radio" name="qcp_approved" value="no"></td>
+                    <td><input type="text" name="qcp_approved_notes"></td>
+                </tr>
+
+                <tr><td>2</td><td>Is the QCP aligned with the DPWH Blue Book and contract specifications?</td>
+                    <td><input type="radio" name="qcp_aligned" value="yes"></td>
+                    <td><input type="radio" name="qcp_aligned" value="no"></td>
+                    <td><input type="text" name="qcp_aligned_notes"></td>
+                </tr>
+
+                <tr><td>3</td><td>Are the quality objectives, KPIs, and procedures clearly defined?</td>
+                    <td><input type="radio" name="quality_objectives" value="yes"></td>
+                    <td><input type="radio" name="quality_objectives" value="no"></td>
+                    <td><input type="text" name="quality_objectives_notes"></td>
+                </tr>
+
+                <tr><td>4</td><td>Is there a designated Quality Control Manager or Engineer assigned?</td>
+                    <td><input type="radio" name="qc_manager_assigned" value="yes"></td>
+                    <td><input type="radio" name="qc_manager_assigned" value="no"></td>
+                    <td><input type="text" name="qc_manager_assigned_notes"></td>
+                </tr>
+
+                <tr><td>5</td><td>Has the QCP been reviewed and accepted by the Engineer/Client?</td>
+                    <td><input type="radio" name="qcp_reviewed" value="yes"></td>
+                    <td><input type="radio" name="qcp_reviewed" value="no"></td>
+                    <td><input type="text" name="qcp_reviewed_notes"></td>
+                </tr>
+
+                <tr><td>6</td><td>Are method statements and inspection test plans (ITPs) available and updated?</td>
+                    <td><input type="radio" name="method_statements_updated" value="yes"></td>
+                    <td><input type="radio" name="method_statements_updated" value="no"></td>
+                    <td><input type="text" name="method_statements_updated_notes"></td>
+                </tr>
+
+                <tr><td>7</td><td>Are daily QC reports, punch lists, and inspection logs maintained and filed?</td>
+                    <td><input type="radio" name="qc_reports_maintained" value="yes"></td>
+                    <td><input type="radio" name="qc_reports_maintained" value="no"></td>
+                    <td><input type="text" name="qc_reports_maintained_notes"></td>
+                </tr>
+
+                <tr><td>8</td><td>Is there a documented procedure for handling non-conformance and corrective actions?</td>
+                    <td><input type="radio" name="non_conformance_procedure" value="yes"></td>
+                    <td><input type="radio" name="non_conformance_procedure" value="no"></td>
+                    <td><input type="text" name="non_conformance_procedure_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Materials Inspection and Testing</th></tr>
+                <tr><td>1</td><td>Are incoming materials inspected and recorded before acceptance on-site?</td>
+                    <td><input type="radio" name="materials_inspected" value="yes"></td>
+                    <td><input type="radio" name="materials_inspected" value="no"></td>
+                    <td><input type="text" name="materials_inspected_notes"></td>
+                </tr>
+
+                <tr><td>2</td><td>Are Material Approval Submittals (MAS) filed and approved before use?</td>
+                    <td><input type="radio" name="mas_approved" value="yes"></td>
+                    <td><input type="radio" name="mas_approved" value="no"></td>
+                    <td><input type="text" name="mas_approved_notes"></td>
+                </tr>
+
+                <tr><td>3</td><td>Are material test results (e.g., concrete compressive strength, soil compaction) available and within required specifications?</td>
+                    <td><input type="radio" name="material_test_results" value="yes"></td>
+                    <td><input type="radio" name="material_test_results" value="no"></td>
+                    <td><input type="text" name="material_test_results_notes"></td>
+                </tr>
+
+                <tr><td>4</td><td>Are third-party testing laboratories accredited by DPWH or recognized agencies?</td>
+                    <td><input type="radio" name="third_party_testing_accredited" value="yes"></td>
+                    <td><input type="radio" name="third_party_testing_accredited" value="no"></td>
+                    <td><input type="text" name="third_party_testing_accredited_notes"></td>
+                </tr>
+
+                <tr><td>5</td><td>Are batching, mixing, and curing processes in compliance with standards?</td>
+                    <td><input type="radio" name="batching_mixing_curing_compliance" value="yes"></td>
+                    <td><input type="radio" name="batching_mixing_curing_compliance" value="no"></td>
+                    <td><input type="text" name="batching_mixing_curing_compliance_notes"></td>
+                </tr>
+
+                <tr><td>6</td><td>Are rejected materials properly tagged, documented, and segregated?</td>
+                    <td><input type="radio" name="rejected_materials_handled" value="yes"></td>
+                    <td><input type="radio" name="rejected_materials_handled" value="no"></td>
+                    <td><input type="text" name="rejected_materials_handled_notes"></td>
+                </tr>
+
+                <tr><td>7</td><td>Is there a calibration log for all QC testing equipment?</td>
+                    <td><input type="radio" name="calibration_log" value="yes"></td>
+                    <td><input type="radio" name="calibration_log" value="no"></td>
+                    <td><input type="text" name="calibration_log_notes"></td>
+                </tr>
+
+                <tr><td>8</td><td>Are testing frequencies in accordance with project specifications or DPWH guidelines?</td>
+                    <td><input type="radio" name="testing_frequencies_compliant" value="yes"></td>
+                    <td><input type="radio" name="testing_frequencies_compliant" value="no"></td>
+                    <td><input type="text" name="testing_frequencies_compliant_notes"></td>
+                </tr>
+
+                <tr><td>9</td><td>Are stockpiles and storage areas organized to prevent contamination or damage?</td>
+                    <td><input type="radio" name="stockpiles_organized" value="yes"></td>
+                    <td><input type="radio" name="stockpiles_organized" value="no"></td>
+                    <td><input type="text" name="stockpiles_organized_notes"></td>
+                </tr>
+
+                <tr><td>10</td><td>Are test results submitted regularly to the supervising consultant or client?</td>
+                    <td><input type="radio" name="test_results_submitted" value="yes"></td>
+                    <td><input type="radio" name="test_results_submitted" value="no"></td>
+                    <td><input type="text" name="test_results_submitted_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Workmanship and Site Execution</th></tr>
+                <tr><td>1</td><td>Are construction activities carried out in accordance with approved shop drawings and specifications?</td>
+                    <td><input type="radio" name="construction_activities_compliance" value="yes"></td>
+                    <td><input type="radio" name="construction_activities_compliance" value="no"></td>
+                    <td><input type="text" name="construction_activities_compliance_notes"></td>
+                </tr>
+
+                <tr><td>2</td><td>Are field inspections conducted before, during, and after major activities (e.g., concreting, backfilling)?</td>
+                    <td><input type="radio" name="field_inspections_conducted" value="yes"></td>
+                    <td><input type="radio" name="field_inspections_conducted" value="no"></td>
+                    <td><input type="text" name="field_inspections_conducted_notes"></td>
+                </tr>
+
+                <tr><td>3</td><td>Are skilled workers certified or adequately trained for specialized work (e.g., welders, equipment operators)?</td>
+                    <td><input type="radio" name="skilled_workers_certified" value="yes"></td>
+                    <td><input type="radio" name="skilled_workers_certified" value="no"></td>
+                    <td><input type="text" name="skilled_workers_certified_notes"></td>
+                </tr>
+
+                <tr><td>4</td><td>Are quality checkpoints being conducted and documented by the QC team?</td>
+                    <td><input type="radio" name="quality_checkpoints_conducted" value="yes"></td>
+                    <td><input type="radio" name="quality_checkpoints_conducted" value="no"></td>
+                    <td><input type="text" name="quality_checkpoints_conducted_notes"></td>
+                </tr>
+
+                <tr><td>5</td><td>Are safety and quality integrated during site inspections?</td>
+                    <td><input type="radio" name="safety_quality_integration" value="yes"></td>
+                    <td><input type="radio" name="safety_quality_integration" value="no"></td>
+                    <td><input type="text" name="safety_quality_integration_notes"></td>
+                </tr>
+
+                <tr><td>6</td><td>Are NCRs issued for observed defects and reworks tracked to completion?</td>
+                    <td><input type="radio" name="ncrs_issued" value="yes"></td>
+                    <td><input type="radio" name="ncrs_issued" value="no"></td>
+                    <td><input type="text" name="ncrs_issued_notes"></td>
+                </tr>
+
+                <tr><td>7</td><td>Are corrective and preventive actions implemented and verified?</td>
+                    <td><input type="radio" name="corrective_actions_implemented" value="yes"></td>
+                    <td><input type="radio" name="corrective_actions_implemented" value="no"></td>
+                    <td><input type="text" name="corrective_actions_implemented_notes"></td>
+                </tr>
+
+                <tr><td>8</td><td>Are there recurring quality issues, and how are they being addressed?</td>
+                    <td><input type="radio" name="recurring_quality_issues" value="yes"></td>
+                    <td><input type="radio" name="recurring_quality_issues" value="no"></td>
+                    <td><input type="text" name="recurring_quality_issues_notes"></td>
+                </tr>
+
+                <tr><td>9</td><td>Are there clear acceptance criteria for major work items (e.g., pavement, structural elements)?</td>
+                    <td><input type="radio" name="acceptance_criteria_clear" value="yes"></td>
+                    <td><input type="radio" name="acceptance_criteria_clear" value="no"></td>
+                    <td><input type="text" name="acceptance_criteria_clear_notes"></td>
+                </tr>
+
+                <tr><td>10</td><td>Are mock-ups or first work inspections conducted as required?</td>
+                    <td><input type="radio" name="mock_ups_conducted" value="yes"></td>
+                    <td><input type="radio" name="mock_ups_conducted" value="no"></td>
+                    <td><input type="text" name="mock_ups_conducted_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Subcontractor and Supplier Quality Compliance</th></tr>
+                <tr><td>1</td><td>Are subcontractors required to submit their own QCP or comply with the main contractor's plan?</td>
+                    <td><input type="radio" name="subcontractor_qcp_compliance" value="yes"></td>
+                    <td><input type="radio" name="subcontractor_qcp_compliance" value="no"></td>
+                    <td><input type="text" name="subcontractor_qcp_compliance_notes"></td>
+                </tr>
+
+                <tr><td>2</td><td>Are suppliers and subcontractors evaluated for quality performance before engagement?</td>
+                    <td><input type="radio" name="suppliers_subcontractors_evaluated" value="yes"></td>
+                    <td><input type="radio" name="suppliers_subcontractors_evaluated" value="no"></td>
+                    <td><input type="text" name="suppliers_subcontractors_evaluated_notes"></td>
+                </tr>
+
+                <tr><td>3</td><td>Are deliveries from suppliers documented with compliance certificates and test results?</td>
+                    <td><input type="radio" name="deliveries_documented_compliance" value="yes"></td>
+                    <td><input type="radio" name="deliveries_documented_compliance" value="no"></td>
+                    <td><input type="text" name="deliveries_documented_compliance_notes"></td>
+                </tr>
+
+                <tr><td>4</td><td>Are subcontractor works subjected to the same QC inspections and documentation?</td>
+                    <td><input type="radio" name="subcontractor_works_qc_compliance" value="yes"></td>
+                    <td><input type="radio" name="subcontractor_works_qc_compliance" value="no"></td>
+                    <td><input type="text" name="subcontractor_works_qc_compliance_notes"></td>
+                </tr>
+
+                <tr><td>5</td><td>Are there site orientations or quality meetings held with subcontractors?</td>
+                    <td><input type="radio" name="site_orientations_quality_meetings" value="yes"></td>
+                    <td><input type="radio" name="site_orientations_quality_meetings" value="no"></td>
+                    <td><input type="text" name="site_orientations_quality_meetings_notes"></td>
+                </tr>
+
+                <tr><td>6</td><td>Are penalties or rework procedures enforced for repeated quality failures?</td>
+                    <td><input type="radio" name="penalties_rework_enforced" value="yes"></td>
+                    <td><input type="radio" name="penalties_rework_enforced" value="no"></td>
+                    <td><input type="text" name="penalties_rework_enforced_notes"></td>
+                </tr>
+
+                <tr><td>7</td><td>Are performance evaluations conducted and recorded for all subcontractors?</td>
+                    <td><input type="radio" name="performance_evaluations_conducted" value="yes"></td>
+                    <td><input type="radio" name="performance_evaluations_conducted" value="no"></td>
+                    <td><input type="text" name="performance_evaluations_conducted_notes"></td>
+                </tr>
+
+                <tr><td>8</td><td>Are there records of coordination meetings regarding quality and execution?</td>
+                    <td><input type="radio" name="coordination_meetings_records" value="yes"></td>
+                    <td><input type="radio" name="coordination_meetings_records" value="no"></td>
+                    <td><input type="text" name="coordination_meetings_records_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Inspection, Turnover, and Close-Out</th></tr>
+                <tr><td>1</td><td>Is there a punch list system for pre-final inspections?</td>
+                    <td><input type="radio" name="punch_list_system" value="yes"></td>
+                    <td><input type="radio" name="punch_list_system" value="no"></td>
+                    <td><input type="text" name="punch_list_system_notes"></td>
+                </tr>
+
+                <tr><td>2</td><td>Are inspections jointly conducted with the client/consultant and documented?</td>
+                    <td><input type="radio" name="joint_inspections_documented" value="yes"></td>
+                    <td><input type="radio" name="joint_inspections_documented" value="no"></td>
+                    <td><input type="text" name="joint_inspections_documented_notes"></td>
+                </tr>
+
+                <tr><td>3</td><td>Is there a clear timeline and responsibility matrix for turnover requirements?</td>
+                    <td><input type="radio" name="turnover_timeline_responsibility" value="yes"></td>
+                    <td><input type="radio" name="turnover_timeline_responsibility" value="no"></td>
+                    <td><input type="text" name="turnover_timeline_responsibility_notes"></td>
+                </tr>
+
+                <tr><td>4</td><td>Are As-Built Drawings, test results, warranties, and O&M manuals prepared and compiled?</td>
+                    <td><input type="radio" name="as_built_prepared_compiled" value="yes"></td>
+                    <td><input type="radio" name="as_built_prepared_compiled" value="no"></td>
+                    <td><input type="text" name="as_built_prepared_compiled_notes"></td>
+                </tr>
+
+                <tr><td>5</td><td>Are final test results submitted and verified prior to handover?</td>
+                    <td><input type="radio" name="final_test_results_verified" value="yes"></td>
+                    <td><input type="radio" name="final_test_results_verified" value="no"></td>
+                    <td><input type="text" name="final_test_results_verified_notes"></td>
+                </tr>
+
+                <tr><td>6</td><td>Has a final QC report or project close-out report been submitted?</td>
+                    <td><input type="radio" name="final_qc_report_submitted" value="yes"></td>
+                    <td><input type="radio" name="final_qc_report_submitted" value="no"></td>
+                    <td><input type="text" name="final_qc_report_submitted_notes"></td>
+                </tr>
+
+                <tr><td>7</td><td>Is there a system for tracking post-construction defects (e.g., during DLP)?</td>
+                    <td><input type="radio" name="post_construction_defects_tracked" value="yes"></td>
+                    <td><input type="radio" name="post_construction_defects_tracked" value="no"></td>
+                    <td><input type="text" name="post_construction_defects_tracked_notes"></td>
+                </tr>
+                
+                <tr><td>8</td><td>Are final inspections documented with client acceptance or approval?</td>
+                    <td><input type="radio" name="final_inspections_documented" value="yes"></td>
+                    <td><input type="radio" name="final_inspections_documented" value="no"></td>
+                    <td><input type="text" name="final_inspections_documented_notes"></td>
+                </tr>
+
+                <!-- Upload Photo Documentation -->
+                <tr>
+                    <th colspan="5">Upload Photo Documentation</th>
+                </tr>
+                <tr>
+                    <td colspan="5" class="upload-section">
+                        <input type="file" id="photo-upload" accept="image/*" multiple>
+                    </td>
+                </tr>
+
+                <!-- Image Preview -->
+                <tr>
+                    <td colspan="5">
+                        <img id="uploaded-photo-preview" style="display:none; max-width: 500px; max-height: 500px;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Download Result Button -->
+        <button class="download-btn" onclick="downloadResult()">Download Result</button>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 InspectoPro. All Rights Reserved.
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - InspectoPro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="image/INSPECTO PRO banner.png" class="logo">
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="#" onclick="goHome()"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+            </ul>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="account" id="account-btn">
+            <img src="image/user.png" class="account-icon">
+            <span>My Account</span>
+            <div class="dropdown" id="dropdown-menu">
+                <p><a href="profile.html">My Profile</a></p>
+                <p><a href="index.html">Logout</a></p>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="service-section">
+            <h2>Company Representative Services</h2>
+            <p>As a company representative, you have access to crucial resources and tools that help ensure compliance with safety and legal regulations. Submit permits, manage required documents, and monitor progress efficiently through our platform.</p>
+        </div>
+        <div class="button-container">
+            <button class="apply-btn" onclick="redirectToDocuments()">Apply for Permit</button>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 InspectoPro. All Rights Reserved.
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

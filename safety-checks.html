@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health, Safety & Environmental Check Sheets - InspectoPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="image/INSPECTO PRO banner.png" class="logo">
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="#" onclick="goHome()"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+            </ul>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="account" id="account-btn">
+            <img src="image/user.png" class="account-icon">
+            <span>My Account</span>
+            <div class="dropdown" id="dropdown-menu">
+                <p><a href="profile.html">My Profile</a></p>
+                <p><a href="index.html">Logout</a></p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Health, Safety & Environmental Check Sheets</h2>
+        
+        <!-- Action Buttons -->
+        <div>
+            <button class="action-btn" onclick="saveData()">Save</button>
+            <button class="action-btn" onclick="clearData()">Clear</button>
+        </div>
+
+        <div class="form-container" id="form">
+            <div class="form-group">
+                <label for="inspector-name">Inspector's Name:</label>
+                <input type="text" id="inspector-name">
+            </div>
+            <div class="form-group">
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location">
+            </div>
+            <div class="form-group">
+                <label for="inspection-time">Date and Time of Inspection:</label>
+                <input type="datetime-local" id="inspection-time">
+            </div>
+            
+            <table id="table">
+                <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Yes</th>
+                    <th>No</th>
+                    <th>Remarks</th>
+                </tr>
+                
+                <tr><th colspan="5">HSE Check Sheet Design and Approval</th></tr>
+                <tr><td>1</td><td>Are HSE check sheets tailored for specific construction activities (e.g., scaffolding, electrical works)?</td>
+                    <td><input type="radio" name="hse_check_sheets_tailored" value="yes"></td>
+                    <td><input type="radio" name="hse_check_sheets_tailored" value="no"></td>
+                    <td><input type="text" name="hse_check_sheets_tailored_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are the check sheets reviewed and approved by the HSE Manager and Safety Officer?</td>
+                    <td><input type="radio" name="check_sheets_reviewed_approved" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_reviewed_approved" value="no"></td>
+                    <td><input type="text" name="check_sheets_reviewed_approved_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Do the check sheets incorporate Philippine laws such as RA 11058 and DOLE D.O. 13?</td>
+                    <td><input type="radio" name="check_sheets_incorporate_laws" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_incorporate_laws" value="no"></td>
+                    <td><input type="text" name="check_sheets_incorporate_laws_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are there specific sections addressing environmental compliance (e.g., noise, dust, waste)?</td>
+                    <td><input type="radio" name="check_sheets_address_environmental_compliance" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_address_environmental_compliance" value="no"></td>
+                    <td><input type="text" name="check_sheets_address_environmental_compliance_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Do the check sheets include PPE requirements per activity?</td>
+                    <td><input type="radio" name="check_sheets_include_ppe" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_include_ppe" value="no"></td>
+                    <td><input type="text" name="check_sheets_include_ppe_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Is the latest revision of the check sheet being used on site?</td>
+                    <td><input type="radio" name="latest_revision_used" value="yes"></td>
+                    <td><input type="radio" name="latest_revision_used" value="no"></td>
+                    <td><input type="text" name="latest_revision_used_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are check sheets aligned with the Construction Safety and Health Program (CSHP)?</td>
+                    <td><input type="radio" name="check_sheets_aligned_cshp" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_aligned_cshp" value="no"></td>
+                    <td><input type="text" name="check_sheets_aligned_cshp_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are daily safety checklists authorized by the assigned Safety Officer or Safety Inspector?</td>
+                    <td><input type="radio" name="daily_checklists_authorized" value="yes"></td>
+                    <td><input type="radio" name="daily_checklists_authorized" value="no"></td>
+                    <td><input type="text" name="daily_checklists_authorized_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">PPE, Worksite Safety, and Daily Implementation</th></tr>
+                <tr><td>1</td><td>Is proper PPE for workers strictly implemented and documented on the check sheet?</td>
+                    <td><input type="radio" name="proper_ppe_implemented" value="yes"></td>
+                    <td><input type="radio" name="proper_ppe_implemented" value="no"></td>
+                    <td><input type="text" name="proper_ppe_implemented_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are visitors and subcontractors also required to wear appropriate PPE?</td>
+                    <td><input type="radio" name="visitors_required_ppe" value="yes"></td>
+                    <td><input type="radio" name="visitors_required_ppe" value="no"></td>
+                    <td><input type="text" name="visitors_required_ppe_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are PPE items appropriate to the task (e.g., full-body harness for heights, cut-resistant gloves)?</td>
+                    <td><input type="radio" name="ppe_appropriate_task" value="yes"></td>
+                    <td><input type="radio" name="ppe_appropriate_task" value="no"></td>
+                    <td><input type="text" name="ppe_appropriate_task_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are defective, damaged, or expired PPE replaced immediately?</td>
+                    <td><input type="radio" name="defective_ppe_replaced" value="yes"></td>
+                    <td><input type="radio" name="defective_ppe_replaced" value="no"></td>
+                    <td><input type="text" name="defective_ppe_replaced_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are workers using additional PPE for high-risk tasks (e.g., welding mask, chemical goggles)?</td>
+                    <td><input type="radio" name="additional_ppe_used" value="yes"></td>
+                    <td><input type="radio" name="additional_ppe_used" value="no"></td>
+                    <td><input type="text" name="additional_ppe_used_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are there daily inspections to verify PPE compliance before work starts?</td>
+                    <td><input type="radio" name="daily_ppe_inspections" value="yes"></td>
+                    <td><input type="radio" name="daily_ppe_inspections" value="no"></td>
+                    <td><input type="text" name="daily_ppe_inspections_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are PPE violations recorded in the HSE check sheets and acted upon?</td>
+                    <td><input type="radio" name="ppe_violations_recorded" value="yes"></td>
+                    <td><input type="radio" name="ppe_violations_recorded" value="no"></td>
+                    <td><input type="text" name="ppe_violations_recorded_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are safety signage, warning tapes, and barricades in place and noted in checklists?</td>
+                    <td><input type="radio" name="safety_signage_in_place" value="yes"></td>
+                    <td><input type="radio" name="safety_signage_in_place" value="no"></td>
+                    <td><input type="text" name="safety_signage_in_place_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are daily toolbox talks conducted and documented as part of the HSE check process?</td>
+                    <td><input type="radio" name="toolbox_talks_conducted" value="yes"></td>
+                    <td><input type="radio" name="toolbox_talks_conducted" value="no"></td>
+                    <td><input type="text" name="toolbox_talks_conducted_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are fall protection systems, scaffolding, and ladders inspected and recorded daily?</td>
+                    <td><input type="radio" name="fall_protection_systems_inspected" value="yes"></td>
+                    <td><input type="radio" name="fall_protection_systems_inspected" value="no"></td>
+                    <td><input type="text" name="fall_protection_systems_inspected_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Monitoring and Documentation of HSE Check Sheets</th></tr>
+                <tr><td>1</td><td>Are completed HSE check sheets submitted and filed daily or weekly?</td>
+                    <td><input type="radio" name="hse_check_sheets_submitted" value="yes"></td>
+                    <td><input type="radio" name="hse_check_sheets_submitted" value="no"></td>
+                    <td><input type="text" name="hse_check_sheets_submitted_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are the findings from HSE check sheets used in weekly safety reports?</td>
+                    <td><input type="radio" name="hse_findings_used_in_reports" value="yes"></td>
+                    <td><input type="radio" name="hse_findings_used_in_reports" value="no"></td>
+                    <td><input type="text" name="hse_findings_used_in_reports_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are HSE check sheet logs tagged by trade, activity, or subcontractor?</td>
+                    <td><input type="radio" name="hse_logs_tagged" value="yes"></td>
+                    <td><input type="radio" name="hse_logs_tagged" value="no"></td>
+                    <td><input type="text" name="hse_logs_tagged_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Is there a follow-up system for unclosed items or recurring violations?</td>
+                    <td><input type="radio" name="follow_up_system_exists" value="yes"></td>
+                    <td><input type="radio" name="follow_up_system_exists" value="no"></td>
+                    <td><input type="text" name="follow_up_system_exists_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are PPE deficiencies, near-misses, or unsafe acts tracked over time using these forms?</td>
+                    <td><input type="radio" name="ppe_deficiencies_tracked" value="yes"></td>
+                    <td><input type="radio" name="ppe_deficiencies_tracked" value="no"></td>
+                    <td><input type="text" name="ppe_deficiencies_tracked_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are scanned or digital records of HSE check sheets maintained for audit purposes?</td>
+                    <td><input type="radio" name="digital_records_maintained" value="yes"></td>
+                    <td><input type="radio" name="digital_records_maintained" value="no"></td>
+                    <td><input type="text" name="digital_records_maintained_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are environmental incidents (e.g., waste mismanagement, water runoff) documented in check sheets?</td>
+                    <td><input type="radio" name="environmental_incidents_documented" value="yes"></td>
+                    <td><input type="radio" name="environmental_incidents_documented" value="no"></td>
+                    <td><input type="text" name="environmental_incidents_documented_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are results of HSE check sheets shared during coordination or toolbox meetings?</td>
+                    <td><input type="radio" name="hse_results_shared" value="yes"></td>
+                    <td><input type="radio" name="hse_results_shared" value="no"></td>
+                    <td><input type="text" name="hse_results_shared_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are incomplete, missing, or falsified check sheets reported?</td>
+                    <td><input type="radio" name="incomplete_check_sheets_reported" value="yes"></td>
+                    <td><input type="radio" name="incomplete_check_sheets_reported" value="no"></td>
+                    <td><input type="text" name="incomplete_check_sheets_reported_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are DOLE site visits or third-party safety inspections cross-referenced with check sheet records?</td>
+                    <td><input type="radio" name="site_visits_cross_referenced" value="yes"></td>
+                    <td><input type="radio" name="site_visits_cross_referenced" value="no"></td>
+                    <td><input type="text" name="site_visits_cross_referenced_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Corrective Actions and Hazard Mitigation</th></tr>
+                <tr><td>1</td><td>Are corrective actions from check sheet observations implemented promptly?</td>
+                    <td><input type="radio" name="corrective_actions_implemented" value="yes"></td>
+                    <td><input type="radio" name="corrective_actions_implemented" value="no"></td>
+                    <td><input type="text" name="corrective_actions_implemented_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Is there documentation that unsafe behaviors (e.g., not wearing PPE) are corrected or sanctioned?</td>
+                    <td><input type="radio" name="unsafe_behaviors_corrected" value="yes"></td>
+                    <td><input type="radio" name="unsafe_behaviors_corrected" value="no"></td>
+                    <td><input type="text" name="unsafe_behaviors_corrected_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are hazard sources identified in check sheets mitigated (e.g., removing sharp objects, covering pits)?</td>
+                    <td><input type="radio" name="hazard_sources_mitigated" value="yes"></td>
+                    <td><input type="radio" name="hazard_sources_mitigated" value="no"></td>
+                    <td><input type="text" name="hazard_sources_mitigated_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are fire safety, electrical safety, and confined space entries monitored through check sheets?</td>
+                    <td><input type="radio" name="safety_entries_monitored" value="yes"></td>
+                    <td><input type="radio" name="safety_entries_monitored" value="no"></td>
+                    <td><input type="text" name="safety_entries_monitored_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are fall incidents or "almost-falls" documented and followed by safety refreshers?</td>
+                    <td><input type="radio" name="fall_incidents_documented" value="yes"></td>
+                    <td><input type="radio" name="fall_incidents_documented" value="no"></td>
+                    <td><input type="text" name="fall_incidents_documented_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are work stoppages due to serious violations recorded in the HSE check sheets?</td>
+                    <td><input type="radio" name="work_stoppages_recorded" value="yes"></td>
+                    <td><input type="radio" name="work_stoppages_recorded" value="no"></td>
+                    <td><input type="text" name="work_stoppages_recorded_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are action plans for environmental non-conformance (e.g., improper disposal) followed through?</td>
+                    <td><input type="radio" name="environmental_non_conformance_followed" value="yes"></td>
+                    <td><input type="radio" name="environmental_non_conformance_followed" value="no"></td>
+                    <td><input type="text" name="environmental_non_conformance_followed_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are updates to the CSHP made when recurring HSE issues are observed in check sheets?</td>
+                    <td><input type="radio" name="updates_to_cshp_made" value="yes"></td>
+                    <td><input type="radio" name="updates_to_cshp_made" value="no"></td>
+                    <td><input type="text" name="updates_to_cshp_made_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Is HSE team follow-up conducted for violations that persist across multiple checklists?</td>
+                    <td><input type="radio" name="hse_follow_up_conducted" value="yes"></td>
+                    <td><input type="radio" name="hse_follow_up_conducted" value="no"></td>
+                    <td><input type="text" name="hse_follow_up_conducted_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are signed validations required for completed or corrected findings?</td>
+                    <td><input type="radio" name="signed_validations_required" value="yes"></td>
+                    <td><input type="radio" name="signed_validations_required" value="no"></td>
+                    <td><input type="text" name="signed_validations_required_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Compliance Review and Continuous Improvement</th></tr>
+                <tr><td>1</td><td>Are trends from HSE check sheets analyzed (e.g., frequent PPE violations)?</td>
+                    <td><input type="radio" name="trends_analyzed" value="yes"></td>
+                    <td><input type="radio" name="trends_analyzed" value="no"></td>
+                    <td><input type="text" name="trends_analyzed_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are HSE audit results cross-validated with data from check sheets?</td>
+                    <td><input type="radio" name="audit_results_cross_validated" value="yes"></td>
+                    <td><input type="radio" name="audit_results_cross_validated" value="no"></td>
+                    <td><input type="text" name="audit_results_cross_validated_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are changes to safety protocols or PPE policies based on check sheet data?</td>
+                    <td><input type="radio" name="safety_changes_based_on_data" value="yes"></td>
+                    <td><input type="radio" name="safety_changes_based_on_data" value="no"></td>
+                    <td><input type="text" name="safety_changes_based_on_data_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are HSE check sheet formats reviewed periodically for relevance and effectiveness?</td>
+                    <td><input type="radio" name="check_sheet_formats_reviewed" value="yes"></td>
+                    <td><input type="radio" name="check_sheet_formats_reviewed" value="no"></td>
+                    <td><input type="text" name="check_sheet_formats_reviewed_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are workers involved in improving checklist content based on real site experience?</td>
+                    <td><input type="radio" name="workers_involved_in_checklist_improvement" value="yes"></td>
+                    <td><input type="radio" name="workers_involved_in_checklist_improvement" value="no"></td>
+                    <td><input type="text" name="workers_involved_in_checklist_improvement_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are compliance metrics (e.g., % PPE compliance, % closed hazards) reported monthly?</td>
+                    <td><input type="radio" name="compliance_metrics_reported" value="yes"></td>
+                    <td><input type="radio" name="compliance_metrics_reported" value="no"></td>
+                    <td><input type="text" name="compliance_metrics_reported_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are good safety practices recognized in HSE committee meetings?</td>
+                    <td><input type="radio" name="good_safety_practices_recognized" value="yes"></td>
+                    <td><input type="radio" name="good_safety_practices_recognized" value="no"></td>
+                    <td><input type="text" name="good_safety_practices_recognized_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are environmental compliance (DENR permits, waste disposal practices) regularly reviewed via check sheets?</td>
+                    <td><input type="radio" name="environmental_compliance_reviewed" value="yes"></td>
+                    <td><input type="radio" name="environmental_compliance_reviewed" value="no"></td>
+                    <td><input type="text" name="environmental_compliance_reviewed_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are DOLE or client audit findings used to update the HSE check sheets?</td>
+                    <td><input type="radio" name="audit_findings_used_to_update_check_sheets" value="yes"></td>
+                    <td><input type="radio" name="audit_findings_used_to_update_check_sheets" value="no"></td>
+                    <td><input type="text" name="audit_findings_used_to_update_check_sheets_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are check sheet data included in end-of-project HSE reports and lessons learned sessions?</td>
+                    <td><input type="radio" name="check_sheet_data_included_in_reports" value="yes"></td>
+                    <td><input type="radio" name="check_sheet_data_included_in_reports" value="no"></td>
+                    <td><input type="text" name="check_sheet_data_included_in_reports_notes"></td>
+                </tr>
+
+                <!-- Upload Photo Documentation -->
+                <tr>
+                    <th colspan="5">Upload Photo Documentation</th>
+                </tr>
+                <tr>
+                    <td colspan="5" class="upload-section">
+                        <input type="file" id="photo-upload" accept="image/*" multiple>
+                    </td>
+                </tr>
+
+                <!-- Image Preview -->
+                <tr>
+                    <td colspan="5">
+                        <img id="uploaded-photo-preview" style="display:none; max-width: 500px; max-height: 500px;" />
+                    </td>
+                </tr>
+            </table>             
+        </div>
+
+        <!-- Download Result Button -->
+        <button class="download-btn" onclick="downloadResult()">Download Result</button>
+    </div>
+    
+    <footer class="footer">&copy; 2025 InspectoPro. All Rights Reserved.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

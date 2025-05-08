@@ -1,0 +1,169 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: rgba(222, 184, 135, 0.5); 
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    height: 80vh;
+    background: rgba(245, 222, 179, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.logo {
+    width: 450px;
+    max-width: 100%
+}
+
+.right-side {
+    width: 50%;
+    padding: 50px;
+    background: #ca5528; 
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-side {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9); 
+}
+
+.left-side h2 {
+    font-size: 24px;
+    color: #5C4033;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 400px; 
+    padding: 12px;
+    border: 1px solid #d2b48c;
+    border-radius: 5px;
+    font-size: 16px; 
+    background: rgba(255, 239, 213, 0.5);
+}
+
+input:focus, select:focus {
+    border: 2px solid #b38a5d; 
+    outline: none;
+    box-shadow: 0 0 5px rgba(179, 138, 93, 0.5); 
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+::placeholder {
+    color: #777;
+    font-size: 14px;
+}
+
+button {
+    width: 350px;
+}
+
+button {
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px; 
+    background: #ec6224;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #c44f1d;
+}
+
+.login-text {
+    font-size: 14px;
+    color: #5C4033;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-link {
+    color: #ec6224;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login-link:hover {
+    color: #c44f1d; 
+    text-decoration: underline;
+}
+
+.logo1 {
+    display: none;
+}
+
+.signup-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .logo {
+        width: 300px;
+    }
+
+    input {
+        width: 250px;
+    }
+
+    button {
+        width: 230px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 400px; 
+    }
+
+    .logo1 {
+        display: block;
+        width: 200px; 
+    }
+
+    .right-side {
+        display: none;
+    }
+
+    .left-side {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    input {
+        width: 300px; 
+    }
+
+    .signup-text {
+        font-size: 14px; 
+        margin-top: 15px; 
+    }
+}

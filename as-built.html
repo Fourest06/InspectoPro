@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Inspection As-Built Packages - InspectoPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="image/INSPECTO PRO banner.png" class="logo">
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="#" onclick="goHome()"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+            </ul>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="account" id="account-btn">
+            <img src="image/user.png" class="account-icon">
+            <span>My Account</span>
+            <div class="dropdown" id="dropdown-menu">
+                <p><a href="profile.html">My Profile</a></p>
+                <p><a href="index.html">Logout</a></p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Project Inspection As-Built Packages</h2>
+        
+        <!-- Action Buttons -->
+        <div>
+            <button class="action-btn" onclick="saveData()">Save</button>
+            <button class="action-btn" onclick="clearData()">Clear</button>
+        </div>
+
+        <div class="form-container" id="form">
+            <div class="form-group">
+                <label for="inspector-name">Inspector's Name:</label>
+                <input type="text" id="inspector-name">
+            </div>
+            <div class="form-group">
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location">
+            </div>
+            <div class="form-group">
+                <label for="inspection-time">Date and Time of Inspection:</label>
+                <input type="datetime-local" id="inspection-time">
+            </div>
+            
+            <table id="table">
+                <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Yes</th>
+                    <th>No</th>
+                    <th>Remarks</th>
+                </tr>
+                
+                <tr><th colspan="5">As-Built Documentation Management</th></tr>
+                <tr><td>1</td><td>Are up-to-date as-built drawings available and tagged according to revisions?</td>
+                    <td><input type="radio" name="as_built_drawings_available" value="yes"></td>
+                    <td><input type="radio" name="as_built_drawings_available" value="no"></td>
+                    <td><input type="text" name="as_built_drawings_available_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are as-built plans prepared by the contractor and verified by the site engineer or inspector?</td>
+                    <td><input type="radio" name="as_built_plans_verified" value="yes"></td>
+                    <td><input type="radio" name="as_built_plans_verified" value="no"></td>
+                    <td><input type="text" name="as_built_plans_verified_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Is there a formal process for reviewing, signing, and approving as-built drawings?</td>
+                    <td><input type="radio" name="formal_process_for_as_built_review" value="yes"></td>
+                    <td><input type="radio" name="formal_process_for_as_built_review" value="no"></td>
+                    <td><input type="text" name="formal_process_for_as_built_review_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are as-built drawings submitted in both hard copy and editable electronic format (e.g., AutoCAD)?</td>
+                    <td><input type="radio" name="as_built_drawings_submitted_in_formats" value="yes"></td>
+                    <td><input type="radio" name="as_built_drawings_submitted_in_formats" value="no"></td>
+                    <td><input type="text" name="as_built_drawings_submitted_in_formats_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are layout changes, deviations, or field modifications properly reflected in the as-builts?</td>
+                    <td><input type="radio" name="layout_changes_reflected_in_as_builts" value="yes"></td>
+                    <td><input type="radio" name="layout_changes_reflected_in_as_builts" value="no"></td>
+                    <td><input type="text" name="layout_changes_reflected_in_as_builts_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are redline drawings maintained daily and transitioned accurately into final as-builts?</td>
+                    <td><input type="radio" name="redline_drawings_maintained" value="yes"></td>
+                    <td><input type="radio" name="redline_drawings_maintained" value="no"></td>
+                    <td><input type="text" name="redline_drawings_maintained_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are structural, architectural, MEP, and utility drawings included in the as-built set?</td>
+                    <td><input type="radio" name="drawings_included_in_as_built_set" value="yes"></td>
+                    <td><input type="radio" name="drawings_included_in_as_built_set" value="no"></td>
+                    <td><input type="text" name="drawings_included_in_as_built_set_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are as-builts stored securely and accessible to the client and project stakeholders?</td>
+                    <td><input type="radio" name="as_builts_stored_securely" value="yes"></td>
+                    <td><input type="radio" name="as_builts_stored_securely" value="no"></td>
+                    <td><input type="text" name="as_builts_stored_securely_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Inspection Records and Final Acceptance</th></tr>
+                <tr><td>1</td><td>Are inspection request forms (IRFs) completed for all major construction activities?</td>
+                    <td><input type="radio" name="irfs_completed_for_activities" value="yes"></td>
+                    <td><input type="radio" name="irfs_completed_for_activities" value="no"></td>
+                    <td><input type="text" name="irfs_completed_for_activities_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are all IRFs approved and signed by the consultant/client representative before inclusion in the turnover package?</td>
+                    <td><input type="radio" name="irfs_approved_and_signed" value="yes"></td>
+                    <td><input type="radio" name="irfs_approved_and_signed" value="no"></td>
+                    <td><input type="text" name="irfs_approved_and_signed_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are punch list items generated during inspection properly tracked and closed out?</td>
+                    <td><input type="radio" name="punch_list_items_tracked" value="yes"></td>
+                    <td><input type="radio" name="punch_list_items_tracked" value="no"></td>
+                    <td><input type="text" name="punch_list_items_tracked_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are inspection records clearly linked to work activity logs and drawings?</td>
+                    <td><input type="radio" name="inspection_records_linked_to_logs" value="yes"></td>
+                    <td><input type="radio" name="inspection_records_linked_to_logs" value="no"></td>
+                    <td><input type="text" name="inspection_records_linked_to_logs_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are witness or hold-point inspections documented with signatures and timestamps?</td>
+                    <td><input type="radio" name="witness_hold_point_inspections_documented" value="yes"></td>
+                    <td><input type="radio" name="witness_hold_point_inspections_documented" value="no"></td>
+                    <td><input type="text" name="witness_hold_point_inspections_documented_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are material test results (e.g., concrete compressive strength, rebar test) included in the inspection package?</td>
+                    <td><input type="radio" name="material_test_results_included" value="yes"></td>
+                    <td><input type="radio" name="material_test_results_included" value="no"></td>
+                    <td><input type="text" name="material_test_results_included_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are all test reports authenticated by an accredited third-party laboratory where applicable?</td>
+                    <td><input type="radio" name="test_reports_authenticated" value="yes"></td>
+                    <td><input type="radio" name="test_reports_authenticated" value="no"></td>
+                    <td><input type="text" name="test_reports_authenticated_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are inspection reports organized by discipline (civil, electrical, plumbing, etc.)?</td>
+                    <td><input type="radio" name="inspection_reports_organized_by_discipline" value="yes"></td>
+                    <td><input type="radio" name="inspection_reports_organized_by_discipline" value="no"></td>
+                    <td><input type="text" name="inspection_reports_organized_by_discipline_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are photographic records of inspections and installations included in the turnover documentation?</td>
+                    <td><input type="radio" name="photographic_records_included" value="yes"></td>
+                    <td><input type="radio" name="photographic_records_included" value="no"></td>
+                    <td><input type="text" name="photographic_records_included_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are final inspection forms signed off by the Engineer-of-Record or QA/QC head?</td>
+                    <td><input type="radio" name="final_inspection_forms_signed_off" value="yes"></td>
+                    <td><input type="radio" name="final_inspection_forms_signed_off" value="no"></td>
+                    <td><input type="text" name="final_inspection_forms_signed_off_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Project Close-out and Turnover Package Compilation</th></tr>
+                <tr><td>1</td><td>Is there a documented checklist for all documents required in the project close-out package?</td>
+                    <td><input type="radio" name="checklist_documented" value="yes"></td>
+                    <td><input type="radio" name="checklist_documented" value="no"></td>
+                    <td><input type="text" name="checklist_documented_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are final completion reports prepared and submitted in line with the contract or agency standards (e.g., DPWH guidelines)?</td>
+                    <td><input type="radio" name="completion_reports_prepared" value="yes"></td>
+                    <td><input type="radio" name="completion_reports_prepared" value="no"></td>
+                    <td><input type="text" name="completion_reports_prepared_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are all operating manuals, warranties, and maintenance instructions included in the as-built package?</td>
+                    <td><input type="radio" name="manuals_included" value="yes"></td>
+                    <td><input type="radio" name="manuals_included" value="no"></td>
+                    <td><input type="text" name="manuals_included_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are final bill of quantities (BOQ) reconciled with as-built drawings and actual work?</td>
+                    <td><input type="radio" name="boq_reconciled" value="yes"></td>
+                    <td><input type="radio" name="boq_reconciled" value="no"></td>
+                    <td><input type="text" name="boq_reconciled_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are subcontractor documentation packages integrated into the main turnover file?</td>
+                    <td><input type="radio" name="subcontractor_docs_integrated" value="yes"></td>
+                    <td><input type="radio" name="subcontractor_docs_integrated" value="no"></td>
+                    <td><input type="text" name="subcontractor_docs_integrated_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are “no objection” certificates or client approval forms attached to the as-built package?</td>
+                    <td><input type="radio" name="no_objection_certificates" value="yes"></td>
+                    <td><input type="radio" name="no_objection_certificates" value="no"></td>
+                    <td><input type="text" name="no_objection_certificates_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are permits and clearances (e.g., occupancy, fire, DENR ECC, DOLE compliance) attached as part of the final documentation?</td>
+                    <td><input type="radio" name="permits_and_clearances_attached" value="yes"></td>
+                    <td><input type="radio" name="permits_and_clearances_attached" value="no"></td>
+                    <td><input type="text" name="permits_and_clearances_attached_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are scanned/digital copies submitted with proper indexing and navigation (e.g., bookmarked PDFs)?</td>
+                    <td><input type="radio" name="scanned_copies_indexed" value="yes"></td>
+                    <td><input type="radio" name="scanned_copies_indexed" value="no"></td>
+                    <td><input type="text" name="scanned_copies_indexed_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are certificates of completion and final acceptance prepared and approved?</td>
+                    <td><input type="radio" name="certificates_prepared" value="yes"></td>
+                    <td><input type="radio" name="certificates_prepared" value="no"></td>
+                    <td><input type="text" name="certificates_prepared_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Is the entire turnover package archived per the project documentation retention policy?</td>
+                    <td><input type="radio" name="turnover_package_archived" value="yes"></td>
+                    <td><input type="radio" name="turnover_package_archived" value="no"></td>
+                    <td><input type="text" name="turnover_package_archived_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Quality Control & Documentation Accuracy</th></tr>
+                <tr><td>1</td><td>Are as-built drawings cross-checked against actual site conditions by the QA/QC team?</td>
+                    <td><input type="radio" name="as_built_cross_checked" value="yes"></td>
+                    <td><input type="radio" name="as_built_cross_checked" value="no"></td>
+                    <td><input type="text" name="as_built_cross_checked_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are inconsistencies between redline drawings and final as-builts addressed and corrected?</td>
+                    <td><input type="radio" name="redline_inconsistencies_corrected" value="yes"></td>
+                    <td><input type="radio" name="redline_inconsistencies_corrected" value="no"></td>
+                    <td><input type="text" name="redline_inconsistencies_corrected_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are dimensional checks or surveyed coordinates included in the final drawings?</td>
+                    <td><input type="radio" name="dimensional_checks_included" value="yes"></td>
+                    <td><input type="radio" name="dimensional_checks_included" value="no"></td>
+                    <td><input type="text" name="dimensional_checks_included_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are deviations from the approved IFC (Issued for Construction) drawings explained and approved?</td>
+                    <td><input type="radio" name="ifc_deviations_explained" value="yes"></td>
+                    <td><input type="radio" name="ifc_deviations_explained" value="no"></td>
+                    <td><input type="text" name="ifc_deviations_explained_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are technical data sheets and materials used reconciled with inspection reports?</td>
+                    <td><input type="radio" name="data_sheets_reconciled" value="yes"></td>
+                    <td><input type="radio" name="data_sheets_reconciled" value="no"></td>
+                    <td><input type="text" name="data_sheets_reconciled_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are quality assurance records (e.g., ITPs, NCRs) included in the documentation?</td>
+                    <td><input type="radio" name="qa_records_included" value="yes"></td>
+                    <td><input type="radio" name="qa_records_included" value="no"></td>
+                    <td><input type="text" name="qa_records_included_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are any identified deficiencies in the documentation flagged for corrective action before turnover?</td>
+                    <td><input type="radio" name="deficiencies_flagged" value="yes"></td>
+                    <td><input type="radio" name="deficiencies_flagged" value="no"></td>
+                    <td><input type="text" name="deficiencies_flagged_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are installation records and commissioning reports (if applicable) part of the documentation package?</td>
+                    <td><input type="radio" name="installation_records_included" value="yes"></td>
+                    <td><input type="radio" name="installation_records_included" value="no"></td>
+                    <td><input type="text" name="installation_records_included_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are as-built submissions reviewed by both engineering and quality departments prior to client submittal?</td>
+                    <td><input type="radio" name="as_built_reviewed" value="yes"></td>
+                    <td><input type="radio" name="as_built_reviewed" value="no"></td>
+                    <td><input type="text" name="as_built_reviewed_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are document version controls and transmittals properly tracked?</td>
+                    <td><input type="radio" name="version_controls_tracked" value="yes"></td>
+                    <td><input type="radio" name="version_controls_tracked" value="no"></td>
+                    <td><input type="text" name="version_controls_tracked_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Client Review, Final Audit, and Archiving</th></tr>
+                <tr><td>1</td><td>Was a formal document review conducted by the client or consultant for the final as-built package?</td>
+                    <td><input type="radio" name="document_review_conducted" value="yes"></td>
+                    <td><input type="radio" name="document_review_conducted" value="no"></td>
+                    <td><input type="text" name="document_review_conducted_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are all client comments and punch list observations resolved prior to final handover?</td>
+                    <td><input type="radio" name="client_comments_resolved" value="yes"></td>
+                    <td><input type="radio" name="client_comments_resolved" value="no"></td>
+                    <td><input type="text" name="client_comments_resolved_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Was a close-out meeting or presentation conducted to walk through the as-built package?</td>
+                    <td><input type="radio" name="close_out_meeting_conducted" value="yes"></td>
+                    <td><input type="radio" name="close_out_meeting_conducted" value="no"></td>
+                    <td><input type="text" name="close_out_meeting_conducted_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are turnover documents organized in a way that complies with the project document control system?</td>
+                    <td><input type="radio" name="turnover_documents_compliant" value="yes"></td>
+                    <td><input type="radio" name="turnover_documents_compliant" value="no"></td>
+                    <td><input type="text" name="turnover_documents_compliant_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Is there a sign-off sheet or approval form for the complete as-built package from all parties?</td>
+                    <td><input type="radio" name="sign_off_sheet" value="yes"></td>
+                    <td><input type="radio" name="sign_off_sheet" value="no"></td>
+                    <td><input type="text" name="sign_off_sheet_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are final project files archived in accordance with company and client policy (physical/digital)?</td>
+                    <td><input type="radio" name="final_files_archived" value="yes"></td>
+                    <td><input type="radio" name="final_files_archived" value="no"></td>
+                    <td><input type="text" name="final_files_archived_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are as-built files stored in a central repository accessible for future maintenance or warranty work?</td>
+                    <td><input type="radio" name="as_built_files_stored" value="yes"></td>
+                    <td><input type="radio" name="as_built_files_stored" value="no"></td>
+                    <td><input type="text" name="as_built_files_stored_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Was feedback on the as-built and inspection process gathered from the client for continuous improvement?</td>
+                    <td><input type="radio" name="client_feedback_gathered" value="yes"></td>
+                    <td><input type="radio" name="client_feedback_gathered" value="no"></td>
+                    <td><input type="text" name="client_feedback_gathered_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are data files backed up and protected from loss or damage (e.g., via cloud storage or external drives)?</td>
+                    <td><input type="radio" name="data_files_backed_up" value="yes"></td>
+                    <td><input type="radio" name="data_files_backed_up" value="no"></td>
+                    <td><input type="text" name="data_files_backed_up_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are lessons learned from the as-built and turnover documentation process compiled for future reference?</td>
+                    <td><input type="radio" name="lessons_learned_compiled" value="yes"></td>
+                    <td><input type="radio" name="lessons_learned_compiled" value="no"></td>
+                    <td><input type="text" name="lessons_learned_compiled_notes"></td>
+                </tr>
+
+                <!-- Upload Photo Documentation -->
+                <tr>
+                    <th colspan="5">Upload Photo Documentation</th>
+                </tr>
+                <tr>
+                    <td colspan="5" class="upload-section">
+                        <input type="file" id="photo-upload" accept="image/*" multiple>
+                    </td>
+                </tr>
+
+                <!-- Image Preview -->
+                <tr>
+                    <td colspan="5">
+                        <img id="uploaded-photo-preview" style="display:none; max-width: 500px; max-height: 500px;" />
+                    </td>
+                </tr>
+            </table>         
+        </div>
+
+        <!-- Download Result Button -->
+        <button class="download-btn" onclick="downloadResult()">Download Result</button>
+    </div>
+    
+    <footer class="footer">&copy; 2025 InspectoPro. All Rights Reserved.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

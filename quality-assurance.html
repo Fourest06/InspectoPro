@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Assurance Check Sheets - InspectoPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="image/INSPECTO PRO banner.png" class="logo">
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="#" onclick="goHome()"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+            </ul>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="account" id="account-btn">
+            <img src="image/user.png" class="account-icon">
+            <span>My Account</span>
+            <div class="dropdown" id="dropdown-menu">
+                <p><a href="profile.html">My Profile</a></p>
+                <p><a href="index.html">Logout</a></p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Quality Assurance Check Sheets</h2>
+        
+        <!-- Action Buttons -->
+        <div>
+            <button class="action-btn" onclick="saveData()">Save</button>
+            <button class="action-btn" onclick="clearData()">Clear</button>
+        </div>
+
+        <div class="form-container" id="form">
+            <div class="form-group">
+                <label for="inspector-name">Inspector's Name:</label>
+                <input type="text" id="inspector-name">
+            </div>
+            <div class="form-group">
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location">
+            </div>
+            <div class="form-group">
+                <label for="inspection-time">Date and Time of Inspection:</label>
+                <input type="datetime-local" id="inspection-time">
+            </div>
+            
+            <table id="table">
+                <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Yes</th>
+                    <th>No</th>
+                    <th>Remarks</th>
+                </tr>
+                
+                <tr><th colspan="5">QA Check Sheet Design and Approval</th></tr>
+                <tr><td>1</td><td>Are QA check sheets available and specific to the work items or trades being audited?</td>
+                    <td><input type="radio" name="qa_check_sheets_available_specific" value="yes"></td>
+                    <td><input type="radio" name="qa_check_sheets_available_specific" value="no"></td>
+                    <td><input type="text" name="qa_check_sheets_available_specific_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Were QA check sheets reviewed and approved by the QA/QC Manager and Project Engineer?</td>
+                    <td><input type="radio" name="qa_check_sheets_reviewed_approved" value="yes"></td>
+                    <td><input type="radio" name="qa_check_sheets_reviewed_approved" value="no"></td>
+                    <td><input type="text" name="qa_check_sheets_reviewed_approved_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Do the check sheets clearly indicate inspection hold points and acceptance criteria?</td>
+                    <td><input type="radio" name="check_sheets_hold_points_acceptance" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_hold_points_acceptance" value="no"></td>
+                    <td><input type="text" name="check_sheets_hold_points_acceptance_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are the check sheets in accordance with the Quality Assurance Plan and ITP?</td>
+                    <td><input type="radio" name="check_sheets_in_accordance" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_in_accordance" value="no"></td>
+                    <td><input type="text" name="check_sheets_in_accordance_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are revisions to check sheets controlled and properly documented?</td>
+                    <td><input type="radio" name="check_sheets_revisions_controlled" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_revisions_controlled" value="no"></td>
+                    <td><input type="text" name="check_sheets_revisions_controlled_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are check sheets aligned with the latest construction drawings and specifications?</td>
+                    <td><input type="radio" name="check_sheets_aligned" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_aligned" value="no"></td>
+                    <td><input type="text" name="check_sheets_aligned_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are there separate QA check sheets for critical work items (e.g., structural works, waterproofing)?</td>
+                    <td><input type="radio" name="separate_qa_check_sheets" value="yes"></td>
+                    <td><input type="radio" name="separate_qa_check_sheets" value="no"></td>
+                    <td><input type="text" name="separate_qa_check_sheets_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Is there a system in place to request or approve new check sheets as new work activities arise?</td>
+                    <td><input type="radio" name="system_for_new_check_sheets" value="yes"></td>
+                    <td><input type="radio" name="system_for_new_check_sheets" value="no"></td>
+                    <td><input type="text" name="system_for_new_check_sheets_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Use and Implementation of Check Sheets on Site</th></tr>
+                <tr><td>1</td><td>Are QA check sheets being used consistently for daily site activities?</td>
+                    <td><input type="radio" name="qa_check_sheets_used_consistently" value="yes"></td>
+                    <td><input type="radio" name="qa_check_sheets_used_consistently" value="no"></td>
+                    <td><input type="text" name="qa_check_sheets_used_consistently_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are they being filled out accurately, legibly, and completely by authorized personnel?</td>
+                    <td><input type="radio" name="check_sheets_filled_accurately" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_filled_accurately" value="no"></td>
+                    <td><input type="text" name="check_sheets_filled_accurately_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are inspection items signed by responsible inspectors or engineers at each stage?</td>
+                    <td><input type="radio" name="inspection_items_signed" value="yes"></td>
+                    <td><input type="radio" name="inspection_items_signed" value="no"></td>
+                    <td><input type="text" name="inspection_items_signed_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are actual values (e.g., dimensions, test results) recorded where applicable?</td>
+                    <td><input type="radio" name="actual_values_recorded" value="yes"></td>
+                    <td><input type="radio" name="actual_values_recorded" value="no"></td>
+                    <td><input type="text" name="actual_values_recorded_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are discrepancies or non-conforming results identified and highlighted in the sheets?</td>
+                    <td><input type="radio" name="discrepancies_highlighted" value="yes"></td>
+                    <td><input type="radio" name="discrepancies_highlighted" value="no"></td>
+                    <td><input type="text" name="discrepancies_highlighted_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are hold points clearly observed before proceeding to the next activity?</td>
+                    <td><input type="radio" name="hold_points_observed" value="yes"></td>
+                    <td><input type="radio" name="hold_points_observed" value="no"></td>
+                    <td><input type="text" name="hold_points_observed_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are client or consultant representatives signing or acknowledging applicable inspections?</td>
+                    <td><input type="radio" name="client_consultant_signing" value="yes"></td>
+                    <td><input type="radio" name="client_consultant_signing" value="no"></td>
+                    <td><input type="text" name="client_consultant_signing_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are site supervisors aware of the specific QA check sheets they are expected to use?</td>
+                    <td><input type="radio" name="site_supervisors_aware" value="yes"></td>
+                    <td><input type="radio" name="site_supervisors_aware" value="no"></td>
+                    <td><input type="text" name="site_supervisors_aware_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are filled-out check sheets kept with the latest site documents and accessible for audit?</td>
+                    <td><input type="radio" name="filled_check_sheets_accessible" value="yes"></td>
+                    <td><input type="radio" name="filled_check_sheets_accessible" value="no"></td>
+                    <td><input type="text" name="filled_check_sheets_accessible_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are daily work activities supported by completed QA check sheets?</td>
+                    <td><input type="radio" name="work_activities_supported" value="yes"></td>
+                    <td><input type="radio" name="work_activities_supported" value="no"></td>
+                    <td><input type="text" name="work_activities_supported_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Monitoring and Documentation Control</th></tr>
+                <tr><td>1</td><td>Are all QA check sheets filed and organized according to discipline or trade?</td>
+                    <td><input type="radio" name="check_sheets_filed_organized" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_filed_organized" value="no"></td>
+                    <td><input type="text" name="check_sheets_filed_organized_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Is there a log or tracking system for issued and completed QA check sheets?</td>
+                    <td><input type="radio" name="log_tracking_system" value="yes"></td>
+                    <td><input type="radio" name="log_tracking_system" value="no"></td>
+                    <td><input type="text" name="log_tracking_system_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are incomplete or missing check sheets flagged and followed up by the QA/QC team?</td>
+                    <td><input type="radio" name="incomplete_check_sheets_flagged" value="yes"></td>
+                    <td><input type="radio" name="incomplete_check_sheets_flagged" value="no"></td>
+                    <td><input type="text" name="incomplete_check_sheets_flagged_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are original copies stored in a secure and accessible location (e.g., QA Office)?</td>
+                    <td><input type="radio" name="original_copies_stored" value="yes"></td>
+                    <td><input type="radio" name="original_copies_stored" value="no"></td>
+                    <td><input type="text" name="original_copies_stored_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are check sheets cross-referenced with work inspection requests (WIRs) or NCRs?</td>
+                    <td><input type="radio" name="check_sheets_cross_referenced" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_cross_referenced" value="no"></td>
+                    <td><input type="text" name="check_sheets_cross_referenced_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are QA check sheets subject to periodic internal audits for completeness and accuracy?</td>
+                    <td><input type="radio" name="qa_check_sheets_audits" value="yes"></td>
+                    <td><input type="radio" name="qa_check_sheets_audits" value="no"></td>
+                    <td><input type="text" name="qa_check_sheets_audits_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are scanned or digital copies used where electronic filing is required?</td>
+                    <td><input type="radio" name="scanned_digital_copies_used" value="yes"></td>
+                    <td><input type="radio" name="scanned_digital_copies_used" value="no"></td>
+                    <td><input type="text" name="scanned_digital_copies_used_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are document control procedures being followed for the archiving of check sheets?</td>
+                    <td><input type="radio" name="document_control_procedures_followed" value="yes"></td>
+                    <td><input type="radio" name="document_control_procedures_followed" value="no"></td>
+                    <td><input type="text" name="document_control_procedures_followed_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are outdated versions removed from use and labeled as obsolete?</td>
+                    <td><input type="radio" name="outdated_versions_removed" value="yes"></td>
+                    <td><input type="radio" name="outdated_versions_removed" value="no"></td>
+                    <td><input type="text" name="outdated_versions_removed_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are QA check sheets available during site walkthroughs and third-party audits?</td>
+                    <td><input type="radio" name="check_sheets_available_walkthroughs" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_available_walkthroughs" value="no"></td>
+                    <td><input type="text" name="check_sheets_available_walkthroughs_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Integration with Inspection and Testing Plans (ITP)</th></tr>
+                <tr><td>1</td><td>Are QA check sheets developed based on the ITP for the project?</td>
+                    <td><input type="radio" name="qa_check_sheets_based_on_itp" value="yes"></td>
+                    <td><input type="radio" name="qa_check_sheets_based_on_itp" value="no"></td>
+                    <td><input type="text" name="qa_check_sheets_based_on_itp_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are the required inspection stages in the ITP reflected in the check sheets?</td>
+                    <td><input type="radio" name="inspection_stages_reflected_in_check_sheets" value="yes"></td>
+                    <td><input type="radio" name="inspection_stages_reflected_in_check_sheets" value="no"></td>
+                    <td><input type="text" name="inspection_stages_reflected_in_check_sheets_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are inspection and test requirements consistent between ITPs and check sheets?</td>
+                    <td><input type="radio" name="inspection_test_requirements_consistent" value="yes"></td>
+                    <td><input type="radio" name="inspection_test_requirements_consistent" value="no"></td>
+                    <td><input type="text" name="inspection_test_requirements_consistent_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are inspectors using ITPs and check sheets together when performing inspections?</td>
+                    <td><input type="radio" name="inspectors_using_itp_and_check_sheets" value="yes"></td>
+                    <td><input type="radio" name="inspectors_using_itp_and_check_sheets" value="no"></td>
+                    <td><input type="text" name="inspectors_using_itp_and_check_sheets_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are results from check sheets used to validate compliance with the ITP?</td>
+                    <td><input type="radio" name="results_used_to_validate_compliance" value="yes"></td>
+                    <td><input type="radio" name="results_used_to_validate_compliance" value="no"></td>
+                    <td><input type="text" name="results_used_to_validate_compliance_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are changes in ITPs reflected promptly in the related check sheets?</td>
+                    <td><input type="radio" name="changes_reflected_in_check_sheets" value="yes"></td>
+                    <td><input type="radio" name="changes_reflected_in_check_sheets" value="no"></td>
+                    <td><input type="text" name="changes_reflected_in_check_sheets_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are ITP reference numbers or codes indicated in the QA check sheets?</td>
+                    <td><input type="radio" name="itp_reference_numbers_in_check_sheets" value="yes"></td>
+                    <td><input type="radio" name="itp_reference_numbers_in_check_sheets" value="no"></td>
+                    <td><input type="text" name="itp_reference_numbers_in_check_sheets_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are failed ITP inspections supported by corresponding QA check sheet entries?</td>
+                    <td><input type="radio" name="failed_itp_inspections_supported" value="yes"></td>
+                    <td><input type="radio" name="failed_itp_inspections_supported" value="no"></td>
+                    <td><input type="text" name="failed_itp_inspections_supported_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Continuous Improvement and Lessons Learned</th></tr>
+                <tr><td>1</td><td>Are there regular reviews of QA check sheet data to identify trends or recurring issues?</td>
+                    <td><input type="radio" name="regular_reviews_identifying_trends" value="yes"></td>
+                    <td><input type="radio" name="regular_reviews_identifying_trends" value="no"></td>
+                    <td><input type="text" name="regular_reviews_identifying_trends_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are lessons learned from QA check sheet reviews discussed in QA/QC meetings?</td>
+                    <td><input type="radio" name="lessons_discussed_in_meetings" value="yes"></td>
+                    <td><input type="radio" name="lessons_discussed_in_meetings" value="no"></td>
+                    <td><input type="text" name="lessons_discussed_in_meetings_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are corrective actions based on check sheet findings documented and followed up?</td>
+                    <td><input type="radio" name="corrective_actions_documented_followed_up" value="yes"></td>
+                    <td><input type="radio" name="corrective_actions_documented_followed_up" value="no"></td>
+                    <td><input type="text" name="corrective_actions_documented_followed_up_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Is there feedback from engineers, foremen, or inspectors on improving check sheet formats?</td>
+                    <td><input type="radio" name="feedback_on_check_sheet_formats" value="yes"></td>
+                    <td><input type="radio" name="feedback_on_check_sheet_formats" value="no"></td>
+                    <td><input type="text" name="feedback_on_check_sheet_formats_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are check sheets revised based on post-activity evaluations or rework analysis?</td>
+                    <td><input type="radio" name="check_sheets_revised_post_activity" value="yes"></td>
+                    <td><input type="radio" name="check_sheets_revised_post_activity" value="no"></td>
+                    <td><input type="text" name="check_sheets_revised_post_activity_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are errors in filled check sheets communicated for retraining or process adjustment?</td>
+                    <td><input type="radio" name="errors_communicated_for_retraining" value="yes"></td>
+                    <td><input type="radio" name="errors_communicated_for_retraining" value="no"></td>
+                    <td><input type="text" name="errors_communicated_for_retraining_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are lessons learned from check sheet audits shared across projects or teams?</td>
+                    <td><input type="radio" name="lessons_shared_across_projects" value="yes"></td>
+                    <td><input type="radio" name="lessons_shared_across_projects" value="no"></td>
+                    <td><input type="text" name="lessons_shared_across_projects_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Is QA leadership reviewing the adequacy of existing check sheets during project milestones?</td>
+                    <td><input type="radio" name="qa_leadership_reviewing_check_sheets" value="yes"></td>
+                    <td><input type="radio" name="qa_leadership_reviewing_check_sheets" value="no"></td>
+                    <td><input type="text" name="qa_leadership_reviewing_check_sheets_notes"></td>
+                </tr>
+
+                <!-- Upload Photo Documentation -->
+                <tr>
+                    <th colspan="5">Upload Photo Documentation</th>
+                </tr>
+                <tr>
+                    <td colspan="5" class="upload-section">
+                        <input type="file" id="photo-upload" accept="image/*" multiple>
+                    </td>
+                </tr>
+
+                <!-- Image Preview -->
+                <tr>
+                    <td colspan="5">
+                        <img id="uploaded-photo-preview" style="display:none; max-width: 500px; max-height: 500px;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Download Result Button -->
+        <button class="download-btn" onclick="downloadResult()">Download Result</button>
+    </div>
+    
+    <footer class="footer">&copy; 2025 InspectoPro. All Rights Reserved.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

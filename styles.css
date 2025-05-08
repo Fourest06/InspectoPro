@@ -1,0 +1,573 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(245, 245, 220, 0.8);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #ca5528;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: fixed;
+    width: 95%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    width: 250px;
+}
+
+.nav-left {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: '<Montserrat>'; 
+}
+
+.nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-toggle {
+    display: none; 
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    margin-right: 20px; 
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-menu i {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.account-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.nav-menu li a:hover {
+    color: #ffcc70;
+}
+
+.menu-toggle:hover {
+    color: #ffcc70;
+}
+
+.account:hover {
+    color: #ffcc70;
+}
+
+/* Dropdown for My Account */
+.account {
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    top: 100%;
+    right: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    z-index: 1001;
+}
+
+.dropdown.active {
+    display: block;
+}
+
+.dropdown a {
+    color: black; 
+    text-decoration: none;
+    display: block; 
+    padding: 8px 12px;
+}
+
+.dropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding-top: 120px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.service-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.service-section h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service-section p {
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.apply-btn {
+    background-color: #ec6224;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    text-decoration: none;
+}
+
+.apply-btn:hover {
+    background-color: #c44f1d;
+}
+
+/* Footer */
+.footer {
+    background-color: #ca5528;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+
+/* Our Services Header */
+.services-header {
+    background-color: white;
+    padding: 80px 20px 50px;
+    text-align: center;
+    margin-top: 1cm;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Services Grid */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.service-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-height: 250px;
+    width: 100%; 
+    max-width: 300px; 
+    margin: auto; 
+}
+
+/* Buttons */
+.btn-bordered {
+    background-color: #ec6224;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    width: 100%; 
+    max-width: 250px;   
+    margin: 10px auto 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-bordered:hover {
+    background-color: #c44f1d;
+    color: white;
+}
+
+/* Blog Header */
+.blog-header {
+    background-color: white;
+    padding: 80px 20px 50px;
+    text-align: center;
+    margin-top: 1cm;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* Biodata Grid */
+.biodata-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    padding: 20px 0;
+}
+
+.bio-slider {
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+.bio-box {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ec6224;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    opacity: 0;
+    transform: translateX(50px); 
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    height: 400px;
+}
+
+.bio-box.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Circular Profile Picture */
+.bio-box .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ec6224; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 15px;
+}
+
+.bio-box h2 {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #ec6224;
+}
+
+.bio-box p {
+    font-size: 14px;
+    color: #444;
+}
+
+/* Arrows for navigation */
+.nav-arrow {
+    background: #ec6224;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out;
+}
+
+.nav-arrow:hover {
+    background: #d14e1f;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #ec6224;
+    color: white;
+}
+
+.upload-section {
+    margin-top: 20px;
+}
+
+.upload-section input {
+    display: block;
+    margin-top: 10px;
+}
+
+.download-btn, .action-btn {
+    margin: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.download-btn {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.download-btn:hover {
+    background-color: #006400;
+}
+
+.action-btn {
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.action-btn:hover {
+    background-color: #333; 
+}
+
+/* About Section */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px 50px;
+    margin-top: 50px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.about-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ec6224;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.title-box {
+    font-weight: bold;
+    background-color: #f8e1c4;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.form-group {
+    flex: 1 1 100%; 
+    max-width: 300px; 
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .logo{
+        width: 200px;
+    }
+
+    .account {
+        margin-right: 20px;
+    }
+
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logo{
+        width: 150px;
+    }
+
+    .service-section h2 {
+        font-size: 20px;
+    }
+    
+    .service-section p {
+        font-size: 14px;
+    }
+
+    .apply-btn {
+        font-size: 20px;
+    }
+    
+    .account span {
+        display: none; 
+    }
+
+    .nav-menu i {
+        font-size: 22px;
+        margin-right: 0;
+    }
+
+    .account-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .menu-toggle {
+        display: block; 
+    }
+
+    .nav-menu {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #ca5528;
+        width: 100%;
+        padding: 15px 0;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+    }
+
+    .nav-menu.show {
+        display: flex; 
+    }
+
+    .account {
+        margin-right: 20px;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-bordered {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    .biodata-container {
+        grid-template-columns: 1fr;
+    }
+
+    .bio-slider {
+        max-width: 300px;
+        padding: 0 30px; 
+    }
+    
+    .bio-box {
+        max-width: 100%; 
+        padding: 10px;
+    }
+
+    .nav-arrow {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr; 
+        width: 100%;
+        gap: 15px;
+    }
+
+    .about-container {
+        padding: 60px 15px 30px;
+    }
+
+    .about-box {
+        min-height: 80px;
+        font-size: 14px;
+        padding: 15px;
+    }
+    
+}

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Audits - InspectoPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="image/INSPECTO PRO banner.png" class="logo">
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="#" onclick="goHome()"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+            </ul>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="account" id="account-btn">
+            <img src="image/user.png" class="account-icon">
+            <span>My Account</span>
+            <div class="dropdown" id="dropdown-menu">
+                <p><a href="profile.html">My Profile</a></p>
+                <p><a href="index.html">Logout</a></p>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2>Quality Audits Template</h2>
+        
+        <!-- Action Buttons -->
+        <div>
+            <button class="action-btn" onclick="saveData()">Save</button>
+            <button class="action-btn" onclick="clearData()">Clear</button>
+        </div>
+
+        <div class="form-container" id="form">
+            <div class="form-group">
+                <label for="inspector-name">Inspector's Name:</label>
+                <input type="text" id="inspector-name">
+            </div>
+            <div class="form-group">
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location">
+            </div>
+            <div class="form-group">
+                <label for="inspection-time">Date and Time of Inspection:</label>
+                <input type="datetime-local" id="inspection-time">
+            </div>
+            
+            <table id="table">
+                <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Yes</th>
+                    <th>No</th>
+                    <th>Remarks</th>
+                </tr>
+                
+                <tr><th colspan="5">Quality Audit Planning and Preparation</th></tr>
+                <tr><td>1</td><td>Is there an annual or project-specific internal quality audit plan in place?</td>
+                    <td><input type="radio" name="audit_plan_in_place" value="yes"></td>
+                    <td><input type="radio" name="audit_plan_in_place" value="no"></td>
+                    <td><input type="text" name="audit_plan_in_place_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are audit schedules communicated in advance to all relevant project teams?</td>
+                    <td><input type="radio" name="audit_schedules_communicated" value="yes"></td>
+                    <td><input type="radio" name="audit_schedules_communicated" value="no"></td>
+                    <td><input type="text" name="audit_schedules_communicated_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are the scope, criteria, and objectives of the quality audit clearly defined?</td>
+                    <td><input type="radio" name="audit_scope_criteria_objectives_defined" value="yes"></td>
+                    <td><input type="radio" name="audit_scope_criteria_objectives_defined" value="no"></td>
+                    <td><input type="text" name="audit_scope_criteria_objectives_defined_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Is the audit plan aligned with ISO 9001, project-specific QCP, or DPWH guidelines?</td>
+                    <td><input type="radio" name="audit_plan_aligned" value="yes"></td>
+                    <td><input type="radio" name="audit_plan_aligned" value="no"></td>
+                    <td><input type="text" name="audit_plan_aligned_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are qualified and independent auditors assigned for each audit activity?</td>
+                    <td><input type="radio" name="qualified_independent_auditors_assigned" value="yes"></td>
+                    <td><input type="radio" name="qualified_independent_auditors_assigned" value="no"></td>
+                    <td><input type="text" name="qualified_independent_auditors_assigned_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Is an opening meeting conducted to discuss audit purpose and process?</td>
+                    <td><input type="radio" name="opening_meeting_conducted" value="yes"></td>
+                    <td><input type="radio" name="opening_meeting_conducted" value="no"></td>
+                    <td><input type="text" name="opening_meeting_conducted_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are audit checklists or tools prepared prior to the actual audit?</td>
+                    <td><input type="radio" name="audit_checklists_prepared" value="yes"></td>
+                    <td><input type="radio" name="audit_checklists_prepared" value="no"></td>
+                    <td><input type="text" name="audit_checklists_prepared_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are auditees informed of their roles and expected documents for the audit?</td>
+                    <td><input type="radio" name="auditees_informed_of_roles" value="yes"></td>
+                    <td><input type="radio" name="auditees_informed_of_roles" value="no"></td>
+                    <td><input type="text" name="auditees_informed_of_roles_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Execution of Quality Audits (Internal and External)</th></tr>
+                <tr><td>1</td><td>Are quality audits conducted as per the planned schedule or with valid justification for delays?</td>
+                    <td><input type="radio" name="quality_audits_conducted_on_schedule" value="yes"></td>
+                    <td><input type="radio" name="quality_audits_conducted_on_schedule" value="no"></td>
+                    <td><input type="text" name="quality_audits_conducted_on_schedule_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are records of internal audits (forms, observations, checklists) maintained and signed?</td>
+                    <td><input type="radio" name="internal_audits_records_maintained" value="yes"></td>
+                    <td><input type="radio" name="internal_audits_records_maintained" value="no"></td>
+                    <td><input type="text" name="internal_audits_records_maintained_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are external audits (e.g., by consultants, ISO certifiers, or owners) facilitated properly?</td>
+                    <td><input type="radio" name="external_audits_facilitated" value="yes"></td>
+                    <td><input type="radio" name="external_audits_facilitated" value="no"></td>
+                    <td><input type="text" name="external_audits_facilitated_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are all major work disciplines (civil, electrical, architectural, etc.) included in the audits?</td>
+                    <td><input type="radio" name="major_disciplines_included_in_audits" value="yes"></td>
+                    <td><input type="radio" name="major_disciplines_included_in_audits" value="no"></td>
+                    <td><input type="text" name="major_disciplines_included_in_audits_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are field observations and interviews conducted during audits?</td>
+                    <td><input type="radio" name="field_observations_and_interviews_conducted" value="yes"></td>
+                    <td><input type="radio" name="field_observations_and_interviews_conducted" value="no"></td>
+                    <td><input type="text" name="field_observations_and_interviews_conducted_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are audit findings clearly classified (e.g., observation, minor non-conformance, major non-conformance)?</td>
+                    <td><input type="radio" name="audit_findings_classified" value="yes"></td>
+                    <td><input type="radio" name="audit_findings_classified" value="no"></td>
+                    <td><input type="text" name="audit_findings_classified_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are non-conformities supported with evidence (e.g., photos, logs, or test reports)?</td>
+                    <td><input type="radio" name="non_conformities_supported_with_evidence" value="yes"></td>
+                    <td><input type="radio" name="non_conformities_supported_with_evidence" value="no"></td>
+                    <td><input type="text" name="non_conformities_supported_with_evidence_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are auditors impartial and not auditing their own work or department?</td>
+                    <td><input type="radio" name="auditors_impartial" value="yes"></td>
+                    <td><input type="radio" name="auditors_impartial" value="no"></td>
+                    <td><input type="text" name="auditors_impartial_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are sub-contractors or suppliers also included in quality audits?</td>
+                    <td><input type="radio" name="sub_contractors_included_in_audits" value="yes"></td>
+                    <td><input type="radio" name="sub_contractors_included_in_audits" value="no"></td>
+                    <td><input type="text" name="sub_contractors_included_in_audits_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are audit checklists updated based on lessons learned from previous audits?</td>
+                    <td><input type="radio" name="audit_checklists_updated" value="yes"></td>
+                    <td><input type="radio" name="audit_checklists_updated" value="no"></td>
+                    <td><input type="text" name="audit_checklists_updated_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Reporting and Documentation of Audit Results</th></tr>
+                <tr><td>1</td><td>Are audit reports prepared within a reasonable time after the audit?</td>
+                    <td><input type="radio" name="audit_reports_prepared_on_time" value="yes"></td>
+                    <td><input type="radio" name="audit_reports_prepared_on_time" value="no"></td>
+                    <td><input type="text" name="audit_reports_prepared_on_time_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Do audit reports include detailed findings, recommendations, and responsible parties?</td>
+                    <td><input type="radio" name="audit_reports_include_details" value="yes"></td>
+                    <td><input type="radio" name="audit_reports_include_details" value="no"></td>
+                    <td><input type="text" name="audit_reports_include_details_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are audit results reviewed with site management or project leadership?</td>
+                    <td><input type="radio" name="audit_results_reviewed_with_management" value="yes"></td>
+                    <td><input type="radio" name="audit_results_reviewed_with_management" value="no"></td>
+                    <td><input type="text" name="audit_results_reviewed_with_management_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are findings presented in a clear, actionable format (e.g., Corrective Action Request)?</td>
+                    <td><input type="radio" name="findings_presented_in_actionable_format" value="yes"></td>
+                    <td><input type="radio" name="findings_presented_in_actionable_format" value="no"></td>
+                    <td><input type="text" name="findings_presented_in_actionable_format_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are NCRs or audit observations logged and tracked systematically?</td>
+                    <td><input type="radio" name="ncrs_logged_and_tracked" value="yes"></td>
+                    <td><input type="radio" name="ncrs_logged_and_tracked" value="no"></td>
+                    <td><input type="text" name="ncrs_logged_and_tracked_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are audit documents (plans, reports, findings) filed and backed up electronically or physically?</td>
+                    <td><input type="radio" name="audit_documents_backed_up" value="yes"></td>
+                    <td><input type="radio" name="audit_documents_backed_up" value="no"></td>
+                    <td><input type="text" name="audit_documents_backed_up_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are results from audits shared across other teams or projects for benchmarking?</td>
+                    <td><input type="radio" name="audit_results_shared_for_benchmarking" value="yes"></td>
+                    <td><input type="radio" name="audit_results_shared_for_benchmarking" value="no"></td>
+                    <td><input type="text" name="audit_results_shared_for_benchmarking_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are recurring findings from audits monitored across audit cycles?</td>
+                    <td><input type="radio" name="recurring_findings_monitored" value="yes"></td>
+                    <td><input type="radio" name="recurring_findings_monitored" value="no"></td>
+                    <td><input type="text" name="recurring_findings_monitored_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are audit records accessible to the client or consultant if required?</td>
+                    <td><input type="radio" name="audit_records_accessible_to_client" value="yes"></td>
+                    <td><input type="radio" name="audit_records_accessible_to_client" value="no"></td>
+                    <td><input type="text" name="audit_records_accessible_to_client_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Is there a documented process for reviewing and approving audit reports?</td>
+                    <td><input type="radio" name="documented_process_for_reviewing_reports" value="yes"></td>
+                    <td><input type="radio" name="documented_process_for_reviewing_reports" value="no"></td>
+                    <td><input type="text" name="documented_process_for_reviewing_reports_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Corrective and Preventive Actions</th></tr>
+                <tr><td>1</td><td>Are corrective action plans prepared for each audit non-conformance?</td>
+                    <td><input type="radio" name="corrective_action_plans_prepared" value="yes"></td>
+                    <td><input type="radio" name="corrective_action_plans_prepared" value="no"></td>
+                    <td><input type="text" name="corrective_action_plans_prepared_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are root cause analyses conducted for major or repeated findings?</td>
+                    <td><input type="radio" name="root_cause_analyses_conducted" value="yes"></td>
+                    <td><input type="radio" name="root_cause_analyses_conducted" value="no"></td>
+                    <td><input type="text" name="root_cause_analyses_conducted_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Are timelines and responsible persons clearly defined in the corrective action plan?</td>
+                    <td><input type="radio" name="timelines_and_responsible_persons_defined" value="yes"></td>
+                    <td><input type="radio" name="timelines_and_responsible_persons_defined" value="no"></td>
+                    <td><input type="text" name="timelines_and_responsible_persons_defined_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are corrective actions validated and verified for effectiveness?</td>
+                    <td><input type="radio" name="corrective_actions_validated" value="yes"></td>
+                    <td><input type="radio" name="corrective_actions_validated" value="no"></td>
+                    <td><input type="text" name="corrective_actions_validated_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are follow-up audits or spot checks conducted to confirm implementation?</td>
+                    <td><input type="radio" name="follow_up_audits_conducted" value="yes"></td>
+                    <td><input type="radio" name="follow_up_audits_conducted" value="no"></td>
+                    <td><input type="text" name="follow_up_audits_conducted_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Are preventive actions (not just corrective) considered based on audit data?</td>
+                    <td><input type="radio" name="preventive_actions_considered" value="yes"></td>
+                    <td><input type="radio" name="preventive_actions_considered" value="no"></td>
+                    <td><input type="text" name="preventive_actions_considered_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are unresolved issues escalated to senior management for intervention?</td>
+                    <td><input type="radio" name="unresolved_issues_escalated" value="yes"></td>
+                    <td><input type="radio" name="unresolved_issues_escalated" value="no"></td>
+                    <td><input type="text" name="unresolved_issues_escalated_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are lessons learned used to improve processes or revise QCP/ITPs?</td>
+                    <td><input type="radio" name="lessons_learned_used" value="yes"></td>
+                    <td><input type="radio" name="lessons_learned_used" value="no"></td>
+                    <td><input type="text" name="lessons_learned_used_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are non-conformance close-out reports signed by the QA/QC Manager?</td>
+                    <td><input type="radio" name="ncr_reports_signed_by_qa_qc_manager" value="yes"></td>
+                    <td><input type="radio" name="ncr_reports_signed_by_qa_qc_manager" value="no"></td>
+                    <td><input type="text" name="ncr_reports_signed_by_qa_qc_manager_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Are repeated audit failures addressed through retraining or procedural changes?</td>
+                    <td><input type="radio" name="repeated_failures_addressed" value="yes"></td>
+                    <td><input type="radio" name="repeated_failures_addressed" value="no"></td>
+                    <td><input type="text" name="repeated_failures_addressed_notes"></td>
+                </tr>
+
+                <tr><th colspan="5">Audit Review, Analysis, and Continuous Improvement</th></tr>
+                <tr><td>1</td><td>Are audit findings analyzed for trends across departments or time periods?</td>
+                    <td><input type="radio" name="audit_findings_analyzed" value="yes"></td>
+                    <td><input type="radio" name="audit_findings_analyzed" value="no"></td>
+                    <td><input type="text" name="audit_findings_analyzed_notes"></td>
+                </tr>
+                <tr><td>2</td><td>Are quality audit summaries presented in management review meetings?</td>
+                    <td><input type="radio" name="quality_audit_summaries_presented" value="yes"></td>
+                    <td><input type="radio" name="quality_audit_summaries_presented" value="no"></td>
+                    <td><input type="text" name="quality_audit_summaries_presented_notes"></td>
+                </tr>
+                <tr><td>3</td><td>Is the internal audit process reviewed and improved based on experience?</td>
+                    <td><input type="radio" name="internal_audit_process_reviewed" value="yes"></td>
+                    <td><input type="radio" name="internal_audit_process_reviewed" value="no"></td>
+                    <td><input type="text" name="internal_audit_process_reviewed_notes"></td>
+                </tr>
+                <tr><td>4</td><td>Are audit results used to improve subcontractor or supplier quality requirements?</td>
+                    <td><input type="radio" name="audit_results_used" value="yes"></td>
+                    <td><input type="radio" name="audit_results_used" value="no"></td>
+                    <td><input type="text" name="audit_results_used_notes"></td>
+                </tr>
+                <tr><td>5</td><td>Are there performance indicators (e.g., % of closed NCRs) monitored regularly?</td>
+                    <td><input type="radio" name="performance_indicators_monitored" value="yes"></td>
+                    <td><input type="radio" name="performance_indicators_monitored" value="no"></td>
+                    <td><input type="text" name="performance_indicators_monitored_notes"></td>
+                </tr>
+                <tr><td>6</td><td>Is auditor performance reviewed for impartiality and effectiveness?</td>
+                    <td><input type="radio" name="auditor_performance_reviewed" value="yes"></td>
+                    <td><input type="radio" name="auditor_performance_reviewed" value="no"></td>
+                    <td><input type="text" name="auditor_performance_reviewed_notes"></td>
+                </tr>
+                <tr><td>7</td><td>Are opportunities for improvement (OFIs) taken seriously and implemented?</td>
+                    <td><input type="radio" name="opportunities_for_improvement_taken" value="yes"></td>
+                    <td><input type="radio" name="opportunities_for_improvement_taken" value="no"></td>
+                    <td><input type="text" name="opportunities_for_improvement_taken_notes"></td>
+                </tr>
+                <tr><td>8</td><td>Are positive findings recognized and shared to encourage best practices?</td>
+                    <td><input type="radio" name="positive_findings_recognized" value="yes"></td>
+                    <td><input type="radio" name="positive_findings_recognized" value="no"></td>
+                    <td><input type="text" name="positive_findings_recognized_notes"></td>
+                </tr>
+                <tr><td>9</td><td>Are quality audits helping to reduce cost of poor quality (COPQ) over time?</td>
+                    <td><input type="radio" name="quality_audits_reduce_copq" value="yes"></td>
+                    <td><input type="radio" name="quality_audits_reduce_copq" value="no"></td>
+                    <td><input type="text" name="quality_audits_reduce_copq_notes"></td>
+                </tr>
+                <tr><td>10</td><td>Is the audit program helping the organization meet its overall quality objectives?</td>
+                    <td><input type="radio" name="audit_program_meet_objectives" value="yes"></td>
+                    <td><input type="radio" name="audit_program_meet_objectives" value="no"></td>
+                    <td><input type="text" name="audit_program_meet_objectives_notes"></td>
+                </tr>
+
+                <!-- Upload Photo Documentation -->
+                <tr>
+                    <th colspan="5">Upload Photo Documentation</th>
+                </tr>
+                <tr>
+                    <td colspan="5" class="upload-section">
+                        <input type="file" id="photo-upload" accept="image/*" multiple>
+                    </td>
+                </tr>
+
+                <!-- Image Preview -->
+                <tr>
+                    <td colspan="5">
+                        <img id="uploaded-photo-preview" style="display:none; max-width: 500px; max-height: 500px;" />
+                    </td>
+                </tr>
+            </table>        
+        </div>
+        <!-- Download Result Button -->
+        <button class="download-btn" onclick="downloadResult()">Download Result</button>
+    </div>
+    
+    <footer class="footer">&copy; 2025 InspectoPro. All Rights Reserved.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - InspectoPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="image/INSPECTO PRO banner.png" class="logo">
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="#" onclick="goHome()"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+            </ul>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="account" id="account-btn">
+            <img src="image/user.png" class="account-icon">
+            <span>My Account</span>
+            <div class="dropdown" id="dropdown-menu">
+                <p><a href="profile.html">My Profile</a></p>
+                <p><a href="index.html">Logout</a></p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <h1>Meet Our Experts</h1>
+        <p>Professionals Behind InspectoPro</p>
+    </section>
+
+    <!-- Biodata Section -->
+    <section class="biodata-container">
+        <button id="prevBtn" class="nav-arrow">&#10094;</button> <!-- Left Arrow -->
+        
+        <div class="bio-slider">
+            <div class="bio-box active">
+                <img src="image/pic3.jpg" alt="Prince Maverick V. Rivadinera" class="profile-pic">
+                <h2>Prince Maverick V. Rivadinera</h2>
+                <p><strong>Role:</strong> Civil Engineering Student</p>
+                <p><strong>Experience:</strong> None</p>
+                <p>Prince Maverick is a dedicated professional ensuring construction safety and compliance.</p>
+            </div>
+
+            <div class="bio-box">
+                <img src="image/pic1.jpg" alt="Jerwin Mico C. Gamab" class="profile-pic">
+                <h2>Jerwin Mico C. Gamab</h2>
+                <p><strong>Role:</strong> Civil Engineering Student</p>
+                <p><strong>Experience:</strong> None</p>
+                <p>Jerwin Mico specializes in designing robust and compliant structures.</p>
+            </div>
+
+            <div class="bio-box">
+                <img src="image/pic2.png" alt="Lois Bridget B. Magnaye" class="profile-pic">
+                <h2>Lois Bridget Magnaye</h2>
+                <p><strong>Role:</strong> Civil Engineering Student</p>
+                <p><strong>Experience:</strong> None</p>
+                <p>Lois Bridget ensures every project meets safety and environmental regulations.</p>
+            </div>
+
+            <div class="bio-box">
+                <img src="image/pic4.jpg" alt="Kurt Neo B. Sambile" class="profile-pic">
+                <h2>Kurt Neo Sambile</h2>
+                <p><strong>Role:</strong> Civil Engineering Student</p>
+                <p><strong>Experience:</strong> None</p>
+                <p>Kurt Neo focuses on maintaining high-quality standards across all projects.</p>
+            </div>
+        </div>
+        
+        <button id="nextBtn" class="nav-arrow">&#10095;</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 InspectoPro. All Rights Reserved.
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

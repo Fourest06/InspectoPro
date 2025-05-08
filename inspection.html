@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection - InspectoPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="image/INSPECTO PRO banner.png" class="logo">
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="#" onclick="goHome()"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+            </ul>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="account" id="account-btn">
+            <img src="image/user.png" class="account-icon">
+            <span>My Account</span>
+            <div class="dropdown" id="dropdown-menu">
+                <p><a href="profile.html">My Profile</a></p>
+                <p><a href="index.html">Logout</a></p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Inspection & Test Plan Checklist</h2>
+        
+        <!-- Action Buttons -->
+        <div>
+            <button class="action-btn" onclick="saveData()">Save</button>
+            <button class="action-btn" onclick="clearData()">Clear</button>
+        </div>
+
+        <div class="form-container" id="form">
+            <div class="form-group">
+                <label for="inspector-name">Inspector's Name:</label>
+                <input type="text" id="inspector-name">
+            </div>
+            <div class="form-group">
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location">
+            </div>
+            <div class="form-group">
+                <label for="inspection-time">Date and Time of Inspection:</label>
+                <input type="datetime-local" id="inspection-time">
+            </div>
+            
+            <table id="table">
+                <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Yes</th>
+                    <th>No</th>
+                    <th>Remarks</th>
+                </tr>
+                
+                <tr><th colspan="5">Project Quality Management System</th></tr>
+                <tr>
+                    <td>1</td>
+                    <td>Is the project quality management system established and documented?</td>
+                    <td><input type="radio" id="q1_yes" name="q1" value="yes"></td>
+                    <td><input type="radio" id="q1_no" name="q1" value="no"></td>
+                    <td><input type="text" id="q1_comment" name="q1_comment"></td>
+                </tr>
+                
+                <tr>
+                    <td>2</td>
+                    <td>Are quality objectives defined and communicated?</td>
+                    <td><input type="radio" id="q2_yes" name="q2" value="yes"></td>
+                    <td><input type="radio" id="q2_no" name="q2" value="no"></td>
+                    <td><input type="text" id="q2_comment" name="q2_comment"></td>
+                </tr>
+                
+                <tr>
+                    <td>3</td>
+                    <td>Are quality responsibilities and authorities defined and assigned?</td>
+                    <td><input type="radio" id="q3_yes" name="q3" value="yes"></td>
+                    <td><input type="radio" id="q3_no" name="q3" value="no"></td>
+                    <td><input type="text" id="q3_comment" name="q3_comment"></td>
+                </tr>
+                
+                <tr>
+                    <td>4</td>
+                    <td>Is the quality management system reviewed and updated regularly?</td>
+                    <td><input type="radio" id="q4_yes" name="q4" value="yes"></td>
+                    <td><input type="radio" id="q4_no" name="q4" value="no"></td>
+                    <td><input type="text" id="q4_comment" name="q4_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">Management Responsibility</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Is top management committed to the quality management system?</td>
+                <td><input type="radio" id="mr1_yes" name="mr1" value="yes"></td>
+                <td><input type="radio" id="mr1_no" name="mr1" value="no"></td>
+                <td><input type="text" id="mr1_comment" name="mr1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Are quality policies and objectives communicated to all personnel?</td>
+                <td><input type="radio" id="mr2_yes" name="mr2" value="yes"></td>
+                <td><input type="radio" id="mr2_no" name="mr2" value="no"></td>
+                <td><input type="text" id="mr2_comment" name="mr2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Are quality responsibilities and authorities defined and assigned?</td>
+                <td><input type="radio" id="mr3_yes" name="mr3" value="yes"></td>
+                <td><input type="radio" id="mr3_no" name="mr3" value="no"></td>
+                <td><input type="text" id="mr3_comment" name="mr3_comment"></td>
+                </tr>
+
+                <tr>
+                <td>4</td>
+                <td>Is management review of the quality management system conducted regularly?</td>
+                <td><input type="radio" id="mr4_yes" name="mr4" value="yes"></td>
+                <td><input type="radio" id="mr4_no" name="mr4" value="no"></td>
+                <td><input type="text" id="mr4_comment" name="mr4_comment"></td>
+                </tr>
+
+                <tr>
+                <td>5</td>
+                <td>Are corrective actions taken to address quality issues?</td>
+                <td><input type="radio" id="mr5_yes" name="mr5" value="yes"></td>
+                <td><input type="radio" id="mr5_no" name="mr5" value="no"></td>
+                <td><input type="text" id="mr5_comment" name="mr5_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">Resource Management</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Are personnel with necessary skills and training assigned to quality-related tasks?</td>
+                <td><input type="radio" id="rm1_yes" name="rm1" value="yes"></td>
+                <td><input type="radio" id="rm1_no" name="rm1" value="no"></td>
+                <td><input type="text" id="rm1_comment" name="rm1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Are resources (e.g., equipment, materials) provided to support quality activities?</td>
+                <td><input type="radio" id="rm2_yes" name="rm2" value="yes"></td>
+                <td><input type="radio" id="rm2_no" name="rm2" value="no"></td>
+                <td><input type="text" id="rm2_comment" name="rm2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Are quality-related documents and records maintained and controlled?</td>
+                <td><input type="radio" id="rm3_yes" name="rm3" value="yes"></td>
+                <td><input type="radio" id="rm3_no" name="rm3" value="no"></td>
+                <td><input type="text" id="rm3_comment" name="rm3_comment"></td>
+                </tr>
+
+                <tr>
+                <td>4</td>
+                <td>Are internal audits conducted to ensure compliance with quality requirements?</td>
+                <td><input type="radio" id="rm4_yes" name="rm4" value="yes"></td>
+                <td><input type="radio" id="rm4_no" name="rm4" value="no"></td>
+                <td><input type="text" id="rm4_comment" name="rm4_comment"></td>
+                </tr>
+
+                <tr>
+                <td>5</td>
+                <td>Are corrective actions taken to address quality issues?</td>
+                <td><input type="radio" id="rm5_yes" name="rm5" value="yes"></td>
+                <td><input type="radio" id="rm5_no" name="rm5" value="no"></td>
+                <td><input type="text" id="rm5_comment" name="rm5_comment"></td>
+                </tr>
+
+                <tr>
+                <td>6</td>
+                <td>Are quality records maintained and retained?</td>
+                <td><input type="radio" id="rm6_yes" name="rm6" value="yes"></td>
+                <td><input type="radio" id="rm6_no" name="rm6" value="no"></td>
+                <td><input type="text" id="rm6_comment" name="rm6_comment"></td>
+                </tr>
+
+                <tr>
+                <td>7</td>
+                <td>Are personnel aware of their quality responsibilities?</td>
+                <td><input type="radio" id="rm7_yes" name="rm7" value="yes"></td>
+                <td><input type="radio" id="rm7_no" name="rm7" value="no"></td>
+                <td><input type="text" id="rm7_comment" name="rm7_comment"></td>
+                </tr>
+
+                <tr>
+                <td>8</td>
+                <td>Is training provided to personnel on quality-related topics?</td>
+                <td><input type="radio" id="rm8_yes" name="rm8" value="yes"></td>
+                <td><input type="radio" id="rm8_no" name="rm8" value="no"></td>
+                <td><input type="text" id="rm8_comment" name="rm8_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">Measurements, Analysis, and Improvement</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Are quality metrics and performance indicators established and tracked?</td>
+                <td><input type="radio" id="mai1_yes" name="mai1" value="yes"></td>
+                <td><input type="radio" id="mai1_no" name="mai1" value="no"></td>
+                <td><input type="text" id="mai1_comment" name="mai1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Are data analysis and reporting conducted to identify quality trends?</td>
+                <td><input type="radio" id="mai2_yes" name="mai2" value="yes"></td>
+                <td><input type="radio" id="mai2_no" name="mai2" value="no"></td>
+                <td><input type="text" id="mai2_comment" name="mai2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Are corrective actions taken to address quality issues?</td>
+                <td><input type="radio" id="mai3_yes" name="mai3" value="yes"></td>
+                <td><input type="radio" id="mai3_no" name="mai3" value="no"></td>
+                <td><input type="text" id="mai3_comment" name="mai3_comment"></td>
+                </tr>
+
+                <tr>
+                <td>4</td>
+                <td>Are quality improvement initiatives implemented and tracked?</td>
+                <td><input type="radio" id="mai4_yes" name="mai4" value="yes"></td>
+                <td><input type="radio" id="mai4_no" name="mai4" value="no"></td>
+                <td><input type="text" id="mai4_comment" name="mai4_comment"></td>
+                </tr>
+
+                <tr>
+                <td>5</td>
+                <td>Are lessons learned documented and applied to future projects?</td>
+                <td><input type="radio" id="mai5_yes" name="mai5" value="yes"></td>
+                <td><input type="radio" id="mai5_no" name="mai5" value="no"></td>
+                <td><input type="text" id="mai5_comment" name="mai5_comment"></td>
+                </tr>
+
+                <tr>
+                <td>6</td>
+                <td>Is the quality management system continuously improved?</td>
+                <td><input type="radio" id="mai6_yes" name="mai6" value="yes"></td>
+                <td><input type="radio" id="mai6_no" name="mai6" value="no"></td>
+                <td><input type="text" id="mai6_comment" name="mai6_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">Construction Inspection Points</th></tr>
+                <tr><th colspan="5">01. QC Application for Inspection</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Has the QC application for inspection been completed?</td>
+                <td><input type="radio" id="ci01_1_yes" name="ci01_1" value="yes"></td>
+                <td><input type="radio" id="ci01_1_no" name="ci01_1" value="no"></td>
+                <td><input type="text" id="ci01_1_comment" name="ci01_1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Are all required inspection documents attached?</td>
+                <td><input type="radio" id="ci01_2_yes" name="ci01_2" value="yes"></td>
+                <td><input type="radio" id="ci01_2_no" name="ci01_2" value="no"></td>
+                <td><input type="text" id="ci01_2_comment" name="ci01_2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Has the inspection request been approved?</td>
+                <td><input type="radio" id="ci01_3_yes" name="ci01_3" value="yes"></td>
+                <td><input type="radio" id="ci01_3_no" name="ci01_3" value="no"></td>
+                <td><input type="text" id="ci01_3_comment" name="ci01_3_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">02. Non-conformance</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Have non-conformities been identified and documented?</td>
+                <td><input type="radio" id="nc_1_yes" name="nc_1" value="yes"></td>
+                <td><input type="radio" id="nc_1_no" name="nc_1" value="no"></td>
+                <td><input type="text" id="nc_1_comment" name="nc_1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Have corrective actions been taken to address non-conformities?</td>
+                <td><input type="radio" id="nc_2_yes" name="nc_2" value="yes"></td>
+                <td><input type="radio" id="nc_2_no" name="nc_2" value="no"></td>
+                <td><input type="text" id="nc_2_comment" name="nc_2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Have non-conformities been verified as closed?</td>
+                <td><input type="radio" id="nc_3_yes" name="nc_3" value="yes"></td>
+                <td><input type="radio" id="nc_3_no" name="nc_3" value="no"></td>
+                <td><input type="text" id="nc_3_comment" name="nc_3_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">03. Project Quality Audits</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Have project quality audits been conducted?</td>
+                <td><input type="radio" id="audit_1_yes" name="audit_1" value="yes"></td>
+                <td><input type="radio" id="audit_1_no" name="audit_1" value="no"></td>
+                <td><input type="text" id="audit_1_comment" name="audit_1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Have audit findings been documented and addressed?</td>
+                <td><input type="radio" id="audit_2_yes" name="audit_2" value="yes"></td>
+                <td><input type="radio" id="audit_2_no" name="audit_2" value="no"></td>
+                <td><input type="text" id="audit_2_comment" name="audit_2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Have corrective actions been taken to address audit findings?</td>
+                <td><input type="radio" id="audit_3_yes" name="audit_3" value="yes"></td>
+                <td><input type="radio" id="audit_3_no" name="audit_3" value="no"></td>
+                <td><input type="text" id="audit_3_comment" name="audit_3_comment"></td>
+                </tr>
+
+                <tr>
+                <td>4</td>
+                <td>Have audit findings been verified as closed?</td>
+                <td><input type="radio" id="audit_4_yes" name="audit_4" value="yes"></td>
+                <td><input type="radio" id="audit_4_no" name="audit_4" value="no"></td>
+                <td><input type="text" id="audit_4_comment" name="audit_4_comment"></td>
+                </tr>
+
+                <tr>
+                <td>5</td>
+                <td>Are audit results communicated to relevant personnel?</td>
+                <td><input type="radio" id="audit_5_yes" name="audit_5" value="yes"></td>
+                <td><input type="radio" id="audit_5_no" name="audit_5" value="no"></td>
+                <td><input type="text" id="audit_5_comment" name="audit_5_comment"></td>
+                </tr>
+
+                <tr>
+                <td>6</td>
+                <td>Are audit results used to improve the quality management system?</td>
+                <td><input type="radio" id="audit_6_yes" name="audit_6" value="yes"></td>
+                <td><input type="radio" id="audit_6_no" name="audit_6" value="no"></td>
+                <td><input type="text" id="audit_6_comment" name="audit_6_comment"></td>
+                </tr>
+
+                <tr>
+                <td>7</td>
+                <td>Are audit schedules and plans established and followed?</td>
+                <td><input type="radio" id="audit_7_yes" name="audit_7" value="yes"></td>
+                <td><input type="radio" id="audit_7_no" name="audit_7" value="no"></td>
+                <td><input type="text" id="audit_7_comment" name="audit_7_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">04. Demolition and Salvage</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Has a demolition and salvage plan been developed?</td>
+                <td><input type="radio" id="demo_1_yes" name="demo_1" value="yes"></td>
+                <td><input type="radio" id="demo_1_no" name="demo_1" value="no"></td>
+                <td><input type="text" id="demo_1_comment" name="demo_1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Are demolition and salvage activities conducted safely?</td>
+                <td><input type="radio" id="demo_2_yes" name="demo_2" value="yes"></td>
+                <td><input type="radio" id="demo_2_no" name="demo_2" value="no"></td>
+                <td><input type="text" id="demo_2_comment" name="demo_2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Are demolition and salvage materials properly disposed of?</td>
+                <td><input type="radio" id="demo_3_yes" name="demo_3" value="yes"></td>
+                <td><input type="radio" id="demo_3_no" name="demo_3" value="no"></td>
+                <td><input type="text" id="demo_3_comment" name="demo_3_comment"></td>
+                </tr>
+
+                <tr>
+                <td>4</td>
+                <td>Are salvage materials properly stored and protected?</td>
+                <td><input type="radio" id="demo_4_yes" name="demo_4" value="yes"></td>
+                <td><input type="radio" id="demo_4_no" name="demo_4" value="no"></td>
+                <td><input type="text" id="demo_4_comment" name="demo_4_comment"></td>
+                </tr>
+
+                <tr>
+                <td>5</td>
+                <td>Are demolition and salvage activities documented?</td>
+                <td><input type="radio" id="demo_5_yes" name="demo_5" value="yes"></td>
+                <td><input type="radio" id="demo_5_no" name="demo_5" value="no"></td>
+                <td><input type="text" id="demo_5_comment" name="demo_5_comment"></td>
+                </tr>
+
+                <tr>
+                <td>6</td>
+                <td>Are demolition and salvage personnel trained and qualified?</td>
+                <td><input type="radio" id="demo_6_yes" name="demo_6" value="yes"></td>
+                <td><input type="radio" id="demo_6_no" name="demo_6" value="no"></td>
+                <td><input type="text" id="demo_6_comment" name="demo_6_comment"></td>
+                </tr>
+
+                <tr>
+                <td>7</td>
+                <td>Are demolition and salvage equipment properly maintained?</td>
+                <td><input type="radio" id="demo_7_yes" name="demo_7" value="yes"></td>
+                <td><input type="radio" id="demo_7_no" name="demo_7" value="no"></td>
+                <td><input type="text" id="demo_7_comment" name="demo_7_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">05. Material Control</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Is a material control process established and documented?</td>
+                <td><input type="radio" id="mat_1_yes" name="mat_1" value="yes"></td>
+                <td><input type="radio" id="mat_1_no" name="mat_1" value="no"></td>
+                <td><input type="text" id="mat_1_comment" name="mat_1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Are materials properly inspected and tested?</td>
+                <td><input type="radio" id="mat_2_yes" name="mat_2" value="yes"></td>
+                <td><input type="radio" id="mat_2_no" name="mat_2" value="no"></td>
+                <td><input type="text" id="mat_2_comment" name="mat_2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Are materials properly stored and protected?</td>
+                <td><input type="radio" id="mat_3_yes" name="mat_3" value="yes"></td>
+                <td><input type="radio" id="mat_3_no" name="mat_3" value="no"></td>
+                <td><input type="text" id="mat_3_comment" name="mat_3_comment"></td>
+                </tr>
+
+                <tr>
+                <td>4</td>
+                <td>Are materials properly labeled and identified?</td>
+                <td><input type="radio" id="mat_4_yes" name="mat_4" value="yes"></td>
+                <td><input type="radio" id="mat_4_no" name="mat_4" value="no"></td>
+                <td><input type="text" id="mat_4_comment" name="mat_4_comment"></td>
+                </tr>
+
+                <tr>
+                <td>5</td>
+                <td>Are material receipts and issues properly documented?</td>
+                <td><input type="radio" id="mat_5_yes" name="mat_5" value="yes"></td>
+                <td><input type="radio" id="mat_5_no" name="mat_5" value="no"></td>
+                <td><input type="text" id="mat_5_comment" name="mat_5_comment"></td>
+                </tr>
+
+                <tr>
+                <td>6</td>
+                <td>Are material stock levels properly monitored?</td>
+                <td><input type="radio" id="mat_6_yes" name="mat_6" value="yes"></td>
+                <td><input type="radio" id="mat_6_no" name="mat_6" value="no"></td>
+                <td><input type="text" id="mat_6_comment" name="mat_6_comment"></td>
+                </tr>
+
+                <tr>
+                <td>7</td>
+                <td>Are material defects and damage properly reported?</td>
+                <td><input type="radio" id="mat_7_yes" name="mat_7" value="yes"></td>
+                <td><input type="radio" id="mat_7_no" name="mat_7" value="no"></td>
+                <td><input type="text" id="mat_7_comment" name="mat_7_comment"></td>
+                </tr>
+
+                <tr>
+                <td>8</td>
+                <td>Are material corrective actions properly taken?</td>
+                <td><input type="radio" id="mat_8_yes" name="mat_8" value="yes"></td>
+                <td><input type="radio" id="mat_8_no" name="mat_8" value="no"></td>
+                <td><input type="text" id="mat_8_comment" name="mat_8_comment"></td>
+                </tr>
+
+                <tr>
+                <td>9</td>
+                <td>Are material quality records properly maintained?</td>
+                <td><input type="radio" id="mat_9_yes" name="mat_9" value="yes"></td>
+                <td><input type="radio" id="mat_9_no" name="mat_9" value="no"></td>
+                <td><input type="text" id="mat_9_comment" name="mat_9_comment"></td>
+                </tr>
+
+                <tr>
+                <td>10</td>
+                <td>Are material suppliers properly qualified?</td>
+                <td><input type="radio" id="mat_10_yes" name="mat_10" value="yes"></td>
+                <td><input type="radio" id="mat_10_no" name="mat_10" value="no"></td>
+                <td><input type="text" id="mat_10_comment" name="mat_10_comment"></td>
+                </tr>
+
+                <tr>
+                <td>11</td>
+                <td>Are material certifications properly verified?</td>
+                <td><input type="radio" id="mat_11_yes" name="mat_11" value="yes"></td>
+                <td><input type="radio" id="mat_11_no" name="mat_11" value="no"></td>
+                <td><input type="text" id="mat_11_comment" name="mat_11_comment"></td>
+                </tr>
+
+                <tr>
+                <td>12</td>
+                <td>Are material test reports properly reviewed?</td>
+                <td><input type="radio" id="mat_12_yes" name="mat_12" value="yes"></td>
+                <td><input type="radio" id="mat_12_no" name="mat_12" value="no"></td>
+                <td><input type="text" id="mat_12_comment" name="mat_12_comment"></td>
+                </tr>
+
+                <tr>
+                <td>13</td>
+                <td>Are material inspection and test procedures properly followed?</td>
+                <td><input type="radio" id="mat_13_yes" name="mat_13" value="yes"></td>
+                <td><input type="radio" id="mat_13_no" name="mat_13" value="no"></td>
+                <td><input type="text" id="mat_13_comment" name="mat_13_comment"></td>
+                </tr>
+
+                <tr>
+                <td>14</td>
+                <td>Are material non-conformities properly addressed?</td>
+                <td><input type="radio" id="mat_14_yes" name="mat_14" value="yes"></td>
+                <td><input type="radio" id="mat_14_no" name="mat_14" value="no"></td>
+                <td><input type="text" id="mat_14_comment" name="mat_14_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">06. Structural Works</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Is a structural work procedure established and documented?</td>
+                <td><input type="radio" id="struct_1_yes" name="struct_1" value="yes"></td>
+                <td><input type="radio" id="struct_1_no" name="struct_1" value="no"></td>
+                <td><input type="text" id="struct_1_comment" name="struct_1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Are structural drawings reviewed and approved?</td>
+                <td><input type="radio" id="struct_2_yes" name="struct_2" value="yes"></td>
+                <td><input type="radio" id="struct_2_no" name="struct_2" value="no"></td>
+                <td><input type="text" id="struct_2_comment" name="struct_2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Are reinforcement materials inspected and approved before use?</td>
+                <td><input type="radio" id="struct_3_yes" name="struct_3" value="yes"></td>
+                <td><input type="radio" id="struct_3_no" name="struct_3" value="no"></td>
+                <td><input type="text" id="struct_3_comment" name="struct_3_comment"></td>
+                </tr>
+
+                <tr>
+                <td>4</td>
+                <td>Are reinforcement works carried out as per drawings and specifications?</td>
+                <td><input type="radio" id="struct_4_yes" name="struct_4" value="yes"></td>
+                <td><input type="radio" id="struct_4_no" name="struct_4" value="no"></td>
+                <td><input type="text" id="struct_4_comment" name="struct_4_comment"></td>
+                </tr>
+
+                <tr>
+                <td>5</td>
+                <td>Are embedded items installed and secured properly?</td>
+                <td><input type="radio" id="struct_5_yes" name="struct_5" value="yes"></td>
+                <td><input type="radio" id="struct_5_no" name="struct_5" value="no"></td>
+                <td><input type="text" id="struct_5_comment" name="struct_5_comment"></td>
+                </tr>
+
+                <tr>
+                <td>6</td>
+                <td>Is formwork aligned, cleaned, and oiled before concrete pouring?</td>
+                <td><input type="radio" id="struct_6_yes" name="struct_6" value="yes"></td>
+                <td><input type="radio" id="struct_6_no" name="struct_6" value="no"></td>
+                <td><input type="text" id="struct_6_comment" name="struct_6_comment"></td>
+                </tr>
+
+                <tr>
+                <td>7</td>
+                <td>Are structural inspections carried out before, during, and after concreting?</td>
+                <td><input type="radio" id="struct_7_yes" name="struct_7" value="yes"></td>
+                <td><input type="radio" id="struct_7_no" name="struct_7" value="no"></td>
+                <td><input type="text" id="struct_7_comment" name="struct_7_comment"></td>
+                </tr>
+
+                <tr>
+                <td>8</td>
+                <td>Are construction joints prepared and treated properly?</td>
+                <td><input type="radio" id="struct_8_yes" name="struct_8" value="yes"></td>
+                <td><input type="radio" id="struct_8_no" name="struct_8" value="no"></td>
+                <td><input type="text" id="struct_8_comment" name="struct_8_comment"></td>
+                </tr>
+
+                <tr>
+                <td>9</td>
+                <td>Are structural defects identified and corrected in a timely manner?</td>
+                <td><input type="radio" id="struct_9_yes" name="struct_9" value="yes"></td>
+                <td><input type="radio" id="struct_9_no" name="struct_9" value="no"></td>
+                <td><input type="text" id="struct_9_comment" name="struct_9_comment"></td>
+                </tr>
+
+                <tr>
+                <td>10</td>
+                <td>Are all structural records maintained and documented properly?</td>
+                <td><input type="radio" id="struct_10_yes" name="struct_10" value="yes"></td>
+                <td><input type="radio" id="struct_10_no" name="struct_10" value="no"></td>
+                <td><input type="text" id="struct_10_comment" name="struct_10_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">07. Piling Work</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Is a piling work plan established and documented?</td>
+                <td><input type="radio" id="piling_1_yes" name="piling_1" value="yes"></td>
+                <td><input type="radio" id="piling_1_no" name="piling_1" value="no"></td>
+                <td><input type="text" id="piling_1_comment" name="piling_1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Are piling work activities conducted safely?</td>
+                <td><input type="radio" id="piling_2_yes" name="piling_2" value="yes"></td>
+                <td><input type="radio" id="piling_2_no" name="piling_2" value="no"></td>
+                <td><input type="text" id="piling_2_comment" name="piling_2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Are piling materials properly inspected and tested?</td>
+                <td><input type="radio" id="piling_3_yes" name="piling_3" value="yes"></td>
+                <td><input type="radio" id="piling_3_no" name="piling_3" value="no"></td>
+                <td><input type="text" id="piling_3_comment" name="piling_3_comment"></td>
+                </tr>
+
+                <tr>
+                <td>4</td>
+                <td>Are piling operations properly monitored and controlled?</td>
+                <td><input type="radio" id="piling_4_yes" name="piling_4" value="yes"></td>
+                <td><input type="radio" id="piling_4_no" name="piling_4" value="no"></td>
+                <td><input type="text" id="piling_4_comment" name="piling_4_comment"></td>
+                </tr>
+
+                <tr>
+                <td>5</td>
+                <td>Are piling personnel trained and qualified?</td>
+                <td><input type="radio" id="piling_5_yes" name="piling_5" value="yes"></td>
+                <td><input type="radio" id="piling_5_no" name="piling_5" value="no"></td>
+                <td><input type="text" id="piling_5_comment" name="piling_5_comment"></td>
+                </tr>
+
+                <tr>
+                <td>6</td>
+                <td>Are piling equipment properly maintained?</td>
+                <td><input type="radio" id="piling_6_yes" name="piling_6" value="yes"></td>
+                <td><input type="radio" id="piling_6_no" name="piling_6" value="no"></td>
+                <td><input type="text" id="piling_6_comment" name="piling_6_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">08. Concrete Works</th></tr>
+                <tr>
+                <td>1</td>
+                <td>Is a concrete work plan established and documented?</td>
+                <td><input type="radio" id="concrete_1_yes" name="concrete_1" value="yes"></td>
+                <td><input type="radio" id="concrete_1_no" name="concrete_1" value="no"></td>
+                <td><input type="text" id="concrete_1_comment" name="concrete_1_comment"></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>Are concrete work activities conducted safely?</td>
+                <td><input type="radio" id="concrete_2_yes" name="concrete_2" value="yes"></td>
+                <td><input type="radio" id="concrete_2_no" name="concrete_2" value="no"></td>
+                <td><input type="text" id="concrete_2_comment" name="concrete_2_comment"></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>Are concrete materials properly inspected and tested?</td>
+                <td><input type="radio" id="concrete_3_yes" name="concrete_3" value="yes"></td>
+                <td><input type="radio" id="concrete_3_no" name="concrete_3" value="no"></td>
+                <td><input type="text" id="concrete_3_comment" name="concrete_3_comment"></td>
+                </tr>
+
+                <tr>
+                <td>4</td>
+                <td>Are concrete operations properly monitored and controlled?</td>
+                <td><input type="radio" id="concrete_4_yes" name="concrete_4" value="yes"></td>
+                <td><input type="radio" id="concrete_4_no" name="concrete_4" value="no"></td>
+                <td><input type="text" id="concrete_4_comment" name="concrete_4_comment"></td>
+                </tr>
+
+                <tr>
+                <td>5</td>
+                <td>Are concrete personnel trained and qualified?</td>
+                <td><input type="radio" id="concrete_5_yes" name="concrete_5" value="yes"></td>
+                <td><input type="radio" id="concrete_5_no" name="concrete_5" value="no"></td>
+                <td><input type="text" id="concrete_5_comment" name="concrete_5_comment"></td>
+                </tr>
+
+                <tr>
+                <td>6</td>
+                <td>Are concrete equipment properly maintained?</td>
+                <td><input type="radio" id="concrete_6_yes" name="concrete_6" value="yes"></td>
+                <td><input type="radio" id="concrete_6_no" name="concrete_6" value="no"></td>
+                <td><input type="text" id="concrete_6_comment" name="concrete_6_comment"></td>
+                </tr>
+
+                <tr>
+                <td>7</td>
+                <td>Are concrete activities properly documented?</td>
+                <td><input type="radio" id="concrete_7_yes" name="concrete_7" value="yes"></td>
+                <td><input type="radio" id="concrete_7_no" name="concrete_7" value="no"></td>
+                <td><input type="text" id="concrete_7_comment" name="concrete_7_comment"></td>
+                </tr>
+
+                <tr>
+                <td>8</td>
+                <td>Are concrete quality records properly maintained?</td>
+                <td><input type="radio" id="concrete_8_yes" name="concrete_8" value="yes"></td>
+                <td><input type="radio" id="concrete_8_no" name="concrete_8" value="no"></td>
+                <td><input type="text" id="concrete_8_comment" name="concrete_8_comment"></td>
+                </tr>
+
+                <tr>
+                <td>9</td>
+                <td>Are concrete defects and damage properly reported?</td>
+                <td><input type="radio" id="concrete_9_yes" name="concrete_9" value="yes"></td>
+                <td><input type="radio" id="concrete_9_no" name="concrete_9" value="no"></td>
+                <td><input type="text" id="concrete_9_comment" name="concrete_9_comment"></td>
+                </tr>
+
+                <tr>
+                <td>10</td>
+                <td>Are concrete corrective actions properly taken?</td>
+                <td><input type="radio" id="concrete_10_yes" name="concrete_10" value="yes"></td>
+                <td><input type="radio" id="concrete_10_no" name="concrete_10" value="no"></td>
+                <td><input type="text" id="concrete_10_comment" name="concrete_10_comment"></td>
+                </tr>
+
+                <tr>
+                <td>11</td>
+                <td>Are concrete test reports properly reviewed?</td>
+                <td><input type="radio" id="concrete_11_yes" name="concrete_11" value="yes"></td>
+                <td><input type="radio" id="concrete_11_no" name="concrete_11" value="no"></td>
+                <td><input type="text" id="concrete_11_comment" name="concrete_11_comment"></td>
+                </tr>
+
+                <tr>
+                <td>12</td>
+                <td>Are concrete inspection and test procedures properly followed?</td>
+                <td><input type="radio" id="concrete_12_yes" name="concrete_12" value="yes"></td>
+                <td><input type="radio" id="concrete_12_no" name="concrete_12" value="no"></td>
+                <td><input type="text" id="concrete_12_comment" name="concrete_12_comment"></td>
+                </tr>
+
+                <tr>
+                <td>13</td>
+                <td>Are concrete non-conformities properly addressed?</td>
+                <td><input type="radio" id="concrete_13_yes" name="concrete_13" value="yes"></td>
+                <td><input type="radio" id="concrete_13_no" name="concrete_13" value="no"></td>
+                <td><input type="text" id="concrete_13_comment" name="concrete_13_comment"></td>
+                </tr>
+
+                <tr>
+                <td>14</td>
+                <td>Are concrete supplier qualifications properly verified?</td>
+                <td><input type="radio" id="concrete_14_yes" name="concrete_14" value="yes"></td>
+                <td><input type="radio" id="concrete_14_no" name="concrete_14" value="no"></td>
+                <td><input type="text" id="concrete_14_comment" name="concrete_14_comment"></td>
+                </tr>
+
+                <tr>
+                <td>15</td>
+                <td>Are concrete certifications properly verified?</td>
+                <td><input type="radio" id="concrete_15_yes" name="concrete_15" value="yes"></td>
+                <td><input type="radio" id="concrete_15_no" name="concrete_15" value="no"></td>
+                <td><input type="text" id="concrete_15_comment" name="concrete_15_comment"></td>
+                </tr>
+
+                <tr>
+                <td>16</td>
+                <td>Are concrete material certifications properly reviewed?</td>
+                <td><input type="radio" id="concrete_16_yes" name="concrete_16" value="yes"></td>
+                <td><input type="radio" id="concrete_16_no" name="concrete_16" value="no"></td>
+                <td><input type="text" id="concrete_16_comment" name="concrete_16_comment"></td>
+                </tr>
+                
+                <tr>
+                <td>17</td>
+                <td>Are concrete construction procedures properly followed?</td>
+                <td><input type="radio" id="concrete_17_yes" name="concrete_17" value="yes"></td>
+                <td><input type="radio" id="concrete_17_no" name="concrete_17" value="no"></td>
+                <td><input type="text" id="concrete_17_comment" name="concrete_17_comment"></td>
+                </tr>
+
+                <tr>
+                <td>18</td>
+                <td>Are concrete site conditions properly monitored?</td>
+                <td><input type="radio" id="concrete_18_yes" name="concrete_18" value="yes"></td>
+                <td><input type="radio" id="concrete_18_no" name="concrete_18" value="no"></td>
+                <td><input type="text" id="concrete_18_comment" name="concrete_18_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">09. Piping Works</th></tr>
+                <tr>
+                    <td>1</td>
+                    <td>Is a piping work plan established and documented?</td>
+                    <td><input type="radio" id="piping_1_yes" name="piping_1" value="yes"></td>
+                    <td><input type="radio" id="piping_1_no" name="piping_1" value="no"></td>
+                    <td><input type="text" id="piping_1_comment" name="piping_1_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Are piping work activities conducted safely?</td>
+                    <td><input type="radio" id="piping_2_yes" name="piping_2" value="yes"></td>
+                    <td><input type="radio" id="piping_2_no" name="piping_2" value="no"></td>
+                    <td><input type="text" id="piping_2_comment" name="piping_2_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Are piping materials properly inspected and tested?</td>
+                    <td><input type="radio" id="piping_3_yes" name="piping_3" value="yes"></td>
+                    <td><input type="radio" id="piping_3_no" name="piping_3" value="no"></td>
+                    <td><input type="text" id="piping_3_comment" name="piping_3_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>Are piping operations properly monitored and controlled?</td>
+                    <td><input type="radio" id="piping_4_yes" name="piping_4" value="yes"></td>
+                    <td><input type="radio" id="piping_4_no" name="piping_4" value="no"></td>
+                    <td><input type="text" id="piping_4_comment" name="piping_4_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>Are piping personnel trained and qualified?</td>
+                    <td><input type="radio" id="piping_5_yes" name="piping_5" value="yes"></td>
+                    <td><input type="radio" id="piping_5_no" name="piping_5" value="no"></td>
+                    <td><input type="text" id="piping_5_comment" name="piping_5_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td>Are piping equipment properly maintained?</td>
+                    <td><input type="radio" id="piping_6_yes" name="piping_6" value="yes"></td>
+                    <td><input type="radio" id="piping_6_no" name="piping_6" value="no"></td>
+                    <td><input type="text" id="piping_6_comment" name="piping_6_comment"></td>
+                </tr>
+                
+                <tr>
+                    <td>7</td>
+                    <td>Are piping activities properly documented?</td>
+                    <td><input type="radio" id="piping_7_yes" name="piping_7" value="yes"></td>
+                    <td><input type="radio" id="piping_7_no" name="piping_7" value="no"></td>
+                    <td><input type="text" id="piping_7_comment" name="piping_7_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>8</td>
+                    <td>Are piping quality records properly maintained?</td>
+                    <td><input type="radio" id="piping_8_yes" name="piping_8" value="yes"></td>
+                    <td><input type="radio" id="piping_8_no" name="piping_8" value="no"></td>
+                    <td><input type="text" id="piping_8_comment" name="piping_8_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>9</td>
+                    <td>Are piping defects and damage properly reported?</td>
+                    <td><input type="radio" id="piping_9_yes" name="piping_9" value="yes"></td>
+                    <td><input type="radio" id="piping_9_no" name="piping_9" value="no"></td>
+                    <td><input type="text" id="piping_9_comment" name="piping_9_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>10</td>
+                    <td>Are piping corrective actions properly taken?</td>
+                    <td><input type="radio" id="piping_10_yes" name="piping_10" value="yes"></td>
+                    <td><input type="radio" id="piping_10_no" name="piping_10" value="no"></td>
+                    <td><input type="text" id="piping_10_comment" name="piping_10_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>11</td>
+                    <td>Are piping test reports properly reviewed?</td>
+                    <td><input type="radio" id="piping_11_yes" name="piping_11" value="yes"></td>
+                    <td><input type="radio" id="piping_11_no" name="piping_11" value="no"></td>
+                    <td><input type="text" id="piping_11_comment" name="piping_11_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>12</td>
+                    <td>Are piping inspection and test procedures properly followed?</td>
+                    <td><input type="radio" id="piping_12_yes" name="piping_12" value="yes"></td>
+                    <td><input type="radio" id="piping_12_no" name="piping_12" value="no"></td>
+                    <td><input type="text" id="piping_12_comment" name="piping_12_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>13</td>
+                    <td>Are piping non-conformities properly addressed?</td>
+                    <td><input type="radio" id="piping_13_yes" name="piping_13" value="yes"></td>
+                    <td><input type="radio" id="piping_13_no" name="piping_13" value="no"></td>
+                    <td><input type="text" id="piping_13_comment" name="piping_13_comment"></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Are piping supplier qualifications properly verified?</td>
+                    <td><input type="radio" id="piping_14_yes" name="piping_14" value="yes"></td>
+                    <td><input type="radio" id="piping_14_no" name="piping_14" value="no"></td>
+                    <td><input type="text" id="piping_14_comment" name="piping_14_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>15</td>
+                    <td>Are piping certifications properly verified?</td>
+                    <td><input type="radio" id="piping_15_yes" name="piping_15" value="yes"></td>
+                    <td><input type="radio" id="piping_15_no" name="piping_15" value="no"></td>
+                    <td><input type="text" id="piping_15_comment" name="piping_15_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>16</td>
+                    <td>Are piping material certifications properly reviewed?</td>
+                    <td><input type="radio" id="piping_16_yes" name="piping_16" value="yes"></td>
+                    <td><input type="radio" id="piping_16_no" name="piping_16" value="no"></td>
+                    <td><input type="text" id="piping_16_comment" name="piping_16_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>17</td>
+                    <td>Are piping construction procedures properly followed?</td>
+                    <td><input type="radio" id="piping_17_yes" name="piping_17" value="yes"></td>
+                    <td><input type="radio" id="piping_17_no" name="piping_17" value="no"></td>
+                    <td><input type="text" id="piping_17_comment" name="piping_17_comment"></td>
+                </tr>
+
+                <tr>
+                    <td>18</td>
+                    <td>Are piping site conditions properly monitored?</td>
+                    <td><input type="radio" id="piping_18_yes" name="piping_18" value="yes"></td>
+                    <td><input type="radio" id="piping_18_no" name="piping_18" value="no"></td>
+                    <td><input type="text" id="piping_18_comment" name="piping_18_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">10. Piping Tie-ins</th></tr>
+                <tr><td>1</td><td>Is a piping tie-in plan established and documented?</td>
+                    <td><input type="radio" id="piping_tie_in_1_yes" name="piping_tie_in_1" value="yes"></td>
+                    <td><input type="radio" id="piping_tie_in_1_no" name="piping_tie_in_1" value="no"></td>
+                    <td><input type="text" id="piping_tie_in_1_comment" name="piping_tie_in_1_comment"></td>
+                </tr>
+
+                <tr><td>2</td><td>Are piping tie-in activities conducted safely?</td>
+                    <td><input type="radio" id="piping_tie_in_2_yes" name="piping_tie_in_2" value="yes"></td>
+                    <td><input type="radio" id="piping_tie_in_2_no" name="piping_tie_in_2" value="no"></td>
+                    <td><input type="text" id="piping_tie_in_2_comment" name="piping_tie_in_2_comment"></td>
+                </tr>
+
+                <tr><td>3</td><td>Are piping tie-in materials properly inspected and tested?</td>
+                    <td><input type="radio" id="piping_tie_in_3_yes" name="piping_tie_in_3" value="yes"></td>
+                    <td><input type="radio" id="piping_tie_in_3_no" name="piping_tie_in_3" value="no"></td>
+                    <td><input type="text" id="piping_tie_in_3_comment" name="piping_tie_in_3_comment"></td>
+                </tr>
+
+                <tr><td>4</td><td>Are piping tie-in operations properly monitored and controlled?</td>
+                    <td><input type="radio" id="piping_tie_in_4_yes" name="piping_tie_in_4" value="yes"></td>
+                    <td><input type="radio" id="piping_tie_in_4_no" name="piping_tie_in_4" value="no"></td>
+                    <td><input type="text" id="piping_tie_in_4_comment" name="piping_tie_in_4_comment"></td>
+                </tr>
+
+                <tr><td>5</td><td>Are piping tie-in personnel trained and qualified?</td>
+                    <td><input type="radio" id="piping_tie_in_5_yes" name="piping_tie_in_5" value="yes"></td>
+                    <td><input type="radio" id="piping_tie_in_5_no" name="piping_tie_in_5" value="no"></td>
+                    <td><input type="text" id="piping_tie_in_5_comment" name="piping_tie_in_5_comment"></td>
+                </tr>
+
+                <tr><td>6</td><td>Are piping tie-in equipment properly maintained?</td>
+                    <td><input type="radio" id="piping_tie_in_6_yes" name="piping_tie_in_6" value="yes"></td>
+                    <td><input type="radio" id="piping_tie_in_6_no" name="piping_tie_in_6" value="no"></td>
+                    <td><input type="text" id="piping_tie_in_6_comment" name="piping_tie_in_6_comment"></td>
+                </tr>
+
+                <tr><td>7</td><td>Are piping tie-in activities properly documented?</td>
+                    <td><input type="radio" id="piping_tie_in_7_yes" name="piping_tie_in_7" value="yes"></td>
+                    <td><input type="radio" id="piping_tie_in_7_no" name="piping_tie_in_7" value="no"></td>
+                    <td><input type="text" id="piping_tie_in_7_comment" name="piping_tie_in_7_comment"></td>
+                </tr>
+
+                <tr><td>8</td><td>Are piping tie-in quality records properly maintained?</td>
+                    <td><input type="radio" id="piping_tie_in_8_yes" name="piping_tie_in_8" value="yes"></td>
+                    <td><input type="radio" id="piping_tie_in_8_no" name="piping_tie_in_8" value="no"></td>
+                    <td><input type="text" id="piping_tie_in_8_comment" name="piping_tie_in_8_comment"></td>
+                </tr>
+
+                <tr><td>9</td><td>Are piping tie-in defects and damage properly reported?</td>
+                    <td><input type="radio" id="piping_tie_in_9_yes" name="piping_tie_in_9" value="yes"></td>
+                    <td><input type="radio" id="piping_tie_in_9_no" name="piping_tie_in_9" value="no"></td>
+                    <td><input type="text" id="piping_tie_in_9_comment" name="piping_tie_in_9_comment"></td>
+                </tr>
+                
+                <tr><td>10</td><td>Are piping tie-in corrective actions properly taken?</td>
+                    <td><input type="radio" id="piping_tie_in_10_yes" name="piping_tie_in_10" value="yes"></td>
+                    <td><input type="radio" id="piping_tie_in_10_no" name="piping_tie_in_10" value="no"></td>
+                    <td><input type="text" id="piping_tie_in_10_comment" name="piping_tie_in_10_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">11. Structural</th></tr>
+                <tr><td>1</td><td>Is a structural plan established and documented?</td>
+                    <td><input type="radio" id="structural_1_yes" name="structural_1" value="yes"></td>
+                    <td><input type="radio" id="structural_1_no" name="structural_1" value="no"></td>
+                    <td><input type="text" id="structural_1_comment" name="structural_1_comment"></td>
+                </tr>
+
+                <tr><td>2</td><td>Are structural activities conducted safely?</td>
+                    <td><input type="radio" id="structural_2_yes" name="structural_2" value="yes"></td>
+                    <td><input type="radio" id="structural_2_no" name="structural_2" value="no"></td>
+                    <td><input type="text" id="structural_2_comment" name="structural_2_comment"></td>
+                </tr>
+
+                <tr><td>3</td><td>Are structural materials properly inspected and tested?</td>
+                    <td><input type="radio" id="structural_3_yes" name="structural_3" value="yes"></td>
+                    <td><input type="radio" id="structural_3_no" name="structural_3" value="no"></td>
+                    <td><input type="text" id="structural_3_comment" name="structural_3_comment"></td>
+                </tr>
+
+                <tr><td>4</td><td>Are structural operations properly monitored and controlled?</td>
+                    <td><input type="radio" id="structural_4_yes" name="structural_4" value="yes"></td>
+                    <td><input type="radio" id="structural_4_no" name="structural_4" value="no"></td>
+                    <td><input type="text" id="structural_4_comment" name="structural_4_comment"></td>
+                </tr>
+
+                <tr><td>5</td><td>Are structural personnel trained and qualified?</td>
+                    <td><input type="radio" id="structural_5_yes" name="structural_5" value="yes"></td>
+                    <td><input type="radio" id="structural_5_no" name="structural_5" value="no"></td>
+                    <td><input type="text" id="structural_5_comment" name="structural_5_comment"></td>
+                </tr>
+
+                <tr><td>6</td><td>Are structural equipment properly maintained?</td>
+                    <td><input type="radio" id="structural_6_yes" name="structural_6" value="yes"></td>
+                    <td><input type="radio" id="structural_6_no" name="structural_6" value="no"></td>
+                    <td><input type="text" id="structural_6_comment" name="structural_6_comment"></td>
+                </tr>
+
+                <tr><td>7</td><td>Are structural activities properly documented?</td>
+                    <td><input type="radio" id="structural_7_yes" name="structural_7" value="yes"></td>
+                    <td><input type="radio" id="structural_7_no" name="structural_7" value="no"></td>
+                    <td><input type="text" id="structural_7_comment" name="structural_7_comment"></td>
+                </tr>
+
+                <tr><td>8</td><td>Are structural quality records properly maintained?</td>
+                    <td><input type="radio" id="structural_8_yes" name="structural_8" value="yes"></td>
+                    <td><input type="radio" id="structural_8_no" name="structural_8" value="no"></td>
+                    <td><input type="text" id="structural_8_comment" name="structural_8_comment"></td>
+                </tr>
+
+                <tr><td>9</td><td>Are structural defects and damage properly reported?</td>
+                    <td><input type="radio" id="structural_9_yes" name="structural_9" value="yes"></td>
+                    <td><input type="radio" id="structural_9_no" name="structural_9" value="no"></td>
+                    <td><input type="text" id="structural_9_comment" name="structural_9_comment"></td>
+                </tr>
+
+                <tr><td>10</td><td>Are structural corrective actions properly taken?</td>
+                    <td><input type="radio" id="structural_10_yes" name="structural_10" value="yes"></td>
+                    <td><input type="radio" id="structural_10_no" name="structural_10" value="no"></td>
+                    <td><input type="text" id="structural_10_comment" name="structural_10_comment"></td>
+                </tr>
+
+                <tr><td>11</td><td>Are structural test reports properly reviewed?</td>
+                    <td><input type="radio" id="structural_11_yes" name="structural_11" value="yes"></td>
+                    <td><input type="radio" id="structural_11_no" name="structural_11" value="no"></td>
+                    <td><input type="text" id="structural_11_comment" name="structural_11_comment"></td>
+                </tr>
+
+                <tr><td>12</td><td>Are structural inspection and test procedures properly followed?</td>
+                    <td><input type="radio" id="structural_12_yes" name="structural_12" value="yes"></td>
+                    <td><input type="radio" id="structural_12_no" name="structural_12" value="no"></td>
+                    <td><input type="text" id="structural_12_comment" name="structural_12_comment"></td>
+                </tr>
+
+                <tr><td>13</td><td>Are structural non-conformities properly addressed?</td>
+                    <td><input type="radio" id="structural_13_yes" name="structural_13" value="yes"></td>
+                    <td><input type="radio" id="structural_13_no" name="structural_13" value="no"></td>
+                    <td><input type="text" id="structural_13_comment" name="structural_13_comment"></td>
+                </tr>
+
+                <tr><td>14</td><td>Are structural supplier qualifications properly verified?</td>
+                    <td><input type="radio" id="structural_14_yes" name="structural_14" value="yes"></td>
+                    <td><input type="radio" id="structural_14_no" name="structural_14" value="no"></td>
+                    <td><input type="text" id="structural_14_comment" name="structural_14_comment"></td>
+                </tr>
+
+                <tr><td>15</td><td>Are structural certifications properly verified?</td>
+                    <td><input type="radio" id="structural_15_yes" name="structural_15" value="yes"></td>
+                    <td><input type="radio" id="structural_15_no" name="structural_15" value="no"></td>
+                    <td><input type="text" id="structural_15_comment" name="structural_15_comment"></td>
+                </tr>
+
+                <tr><td>16</td><td>Are structural material certifications properly reviewed?</td>
+                    <td><input type="radio" id="structural_16_yes" name="structural_16" value="yes"></td>
+                    <td><input type="radio" id="structural_16_no" name="structural_16" value="no"></td>
+                    <td><input type="text" id="structural_16_comment" name="structural_16_comment"></td>
+                </tr>
+                
+                <tr><td>17</td><td>Are structural construction procedures properly followed?</td>
+                    <td><input type="radio" id="structural_17_yes" name="structural_17" value="yes"></td>
+                    <td><input type="radio" id="structural_17_no" name="structural_17" value="no"></td>
+                    <td><input type="text" id="structural_17_comment" name="structural_17_comment"></td>
+                </tr>
+
+                <tr><td>18</td><td>Are structural site conditions properly monitored?</td>
+                    <td><input type="radio" id="structural_18_yes" name="structural_18" value="yes"></td>
+                    <td><input type="radio" id="structural_18_no" name="structural_18" value="no"></td>
+                    <td><input type="text" id="structural_18_comment" name="structural_18_comment"></td>
+                </tr>
+                
+                <tr><td>19</td><td>Are structural quality control measures properly implemented?</td>
+                    <td><input type="radio" id="structural_19_yes" name="structural_19" value="yes"></td>
+                    <td><input type="radio" id="structural_19_no" name="structural_19" value="no"></td>
+                    <td><input type="text" id="structural_19_comment" name="structural_19_comment"></td>
+                </tr>
+
+                <tr><td>20</td><td>Are structural safety procedures properly followed?</td>
+                    <td><input type="radio" id="structural_20_yes" name="structural_20" value="yes"></td>
+                    <td><input type="radio" id="structural_20_no" name="structural_20" value="no"></td>
+                    <td><input type="text" id="structural_20_comment" name="structural_20_comment"></td>
+                </tr>
+
+                <tr><td>21</td><td>Are structural environmental procedures properly followed?</td>
+                    <td><input type="radio" id="structural_21_yes" name="structural_21" value="yes"></td>
+                    <td><input type="radio" id="structural_21_no" name="structural_21" value="no"></td>
+                    <td><input type="text" id="structural_21_comment" name="structural_21_comment"></td>
+                </tr>
+
+                <tr><td>22</td><td>Are structural regulatory requirements properly met?</td>
+                    <td><input type="radio" id="structural_22_yes" name="structural_22" value="yes"></td>
+                    <td><input type="radio" id="structural_22_no" name="structural_22" value="no"></td>
+                    <td><input type="text" id="structural_22_comment" name="structural_22_comment"></td>
+                </tr>
+
+                <tr><th colspan="5">12. Welding/Brazing</th></tr>
+                <tr><td>1</td><td>Is a welding/brazing plan established and documented?</td><td><input type="radio" name="welding_brazing_1"></td><td><input type="radio" name="welding_brazing_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are welding/brazing activities conducted safely?</td><td><input type="radio" name="welding_brazing_2"></td><td><input type="radio" name="welding_brazing_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are welding/brazing materials properly inspected and tested?</td><td><input type="radio" name="welding_brazing_3"></td><td><input type="radio" name="welding_brazing_3"></td><td><input type="text"></td></tr>
+                <tr><td>4</td><td>Are welding/brazing operations properly monitored and controlled?</td><td><input type="radio" name="welding_brazing_4"></td><td><input type="radio" name="welding_brazing_4"></td><td><input type="text"></td></tr>
+                <tr><td>5</td><td>Are welding/brazing personnel trained and qualified?</td><td><input type="radio" name="welding_brazing_5"></td><td><input type="radio" name="welding_brazing_5"></td><td><input type="text"></td></tr>
+                <tr><td>6</td><td>Are welding/brazing equipment properly maintained?</td><td><input type="radio" name="welding_brazing_6"></td><td><input type="radio" name="welding_brazing_6"></td><td><input type="text"></td></tr>
+                <tr><td>7</td><td>Are welding/brazing activities properly documented?</td><td><input type="radio" name="welding_brazing_7"></td><td><input type="radio" name="welding_brazing_7"></td><td><input type="text"></td></tr>
+                <tr><td>8</td><td>Are welding/brazing quality records properly maintained?</td><td><input type="radio" name="welding_brazing_8"></td><td><input type="radio" name="welding_brazing_8"></td><td><input type="text"></td></tr>
+                <tr><td>9</td><td>Are welding/brazing defects and damage properly reported?</td><td><input type="radio" name="welding_brazing_9"></td><td><input type="radio" name="welding_brazing_9"></td><td><input type="text"></td></tr>
+                <tr><td>10</td><td>Are welding/brazing corrective actions properly taken?</td><td><input type="radio" name="welding_brazing_10"></td><td><input type="radio" name="welding_brazing_10"></td><td><input type="text"></td></tr>
+                <tr><td>11</td><td>Are welding/brazing test reports properly reviewed?</td><td><input type="radio" name="welding_brazing_11"></td><td><input type="radio" name="welding_brazing_11"></td><td><input type="text"></td></tr>
+                <tr><td>12</td><td>Are welding/brazing inspection and test procedures properly followed?</td><td><input type="radio" name="welding_brazing_12"></td><td><input type="radio" name="welding_brazing_12"></td><td><input type="text"></td></tr>
+                <tr><td>13</td><td>Are welding/brazing non-conformities properly addressed?</td><td><input type="radio" name="welding_brazing_13"></td><td><input type="radio" name="welding_brazing_13"></td><td><input type="text"></td></tr>
+                <tr><td>14</td><td>Are welding/brazing supplier qualifications properly verified?</td><td><input type="radio" name="welding_brazing_14"></td><td><input type="radio" name="welding_brazing_14"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">13. NDE</th></tr>
+                <tr><td>1</td><td>Is an NDE special processes plan established and documented?</td><td><input type="radio" name="nde_special_processes_1"></td><td><input type="radio" name="nde_special_processes_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are NDE special processes activities conducted safely?</td><td><input type="radio" name="nde_special_processes_2"></td><td><input type="radio" name="nde_special_processes_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are NDE special processes materials properly inspected and tested?</td><td><input type="radio" name="nde_special_processes_3"></td><td><input type="radio" name="nde_special_processes_3"></td><td><input type="text"></td></tr>
+                <tr><td>4</td><td>Are NDE special processes operations properly monitored and controlled?</td><td><input type="radio" name="nde_special_processes_4"></td><td><input type="radio" name="nde_special_processes_4"></td><td><input type="text"></td></tr>
+                <tr><td>5</td><td>Are NDE special processes personnel trained and qualified?</td><td><input type="radio" name="nde_special_processes_5"></td><td><input type="radio" name="nde_special_processes_5"></td><td><input type="text"></td></tr>
+                <tr><td>6</td><td>Are NDE special processes equipment properly maintained?</td><td><input type="radio" name="nde_special_processes_6"></td><td><input type="radio" name="nde_special_processes_6"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">14. Pressure Testing</th></tr>
+                <tr><td>1</td><td>Is a pressure testing plan established and documented?</td><td><input type="radio" name="pressure_testing_1"></td><td><input type="radio" name="pressure_testing_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are pressure testing activities conducted safely?</td><td><input type="radio" name="pressure_testing_2"></td><td><input type="radio" name="pressure_testing_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are pressure testing materials properly inspected and tested?</td><td><input type="radio" name="pressure_testing_3"></td><td><input type="radio" name="pressure_testing_3"></td><td><input type="text"></td></tr>
+                <tr><td>4</td><td>Are pressure testing operations properly monitored and controlled?</td><td><input type="radio" name="pressure_testing_4"></td><td><input type="radio" name="pressure_testing_4"></td><td><input type="text"></td></tr>
+                <tr><td>5</td><td>Are pressure testing personnel trained and qualified?</td><td><input type="radio" name="pressure_testing_5"></td><td><input type="radio" name="pressure_testing_5"></td><td><input type="text"></td></tr>
+                <tr><td>6</td><td>Are pressure testing equipment properly maintained?</td><td><input type="radio" name="pressure_testing_6"></td><td><input type="radio" name="pressure_testing_6"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">15. Coating</th></tr>
+                <tr><td>1</td><td>Is a coatings plan established and documented?</td><td><input type="radio" name="coating_1"></td><td><input type="radio" name="coating_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are coatings activities conducted safely?</td><td><input type="radio" name="coating_2"></td><td><input type="radio" name="coating_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are coatings materials properly inspected and tested?</td><td><input type="radio" name="coating_3"></td><td><input type="radio" name="coating_3"></td><td><input type="text"></td></tr>
+                <tr><td>4</td><td>Are coatings operations properly monitored and controlled?</td><td><input type="radio" name="coating_4"></td><td><input type="radio" name="coating_4"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">16. Insulation/Refractory</th></tr>
+                <tr><td>1</td><td>Is an insulation/refractory plan established and documented?</td><td><input type="radio" name="insulation_1"></td><td><input type="radio" name="insulation_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are insulation/refractory activities conducted safely?</td><td><input type="radio" name="insulation_2"></td><td><input type="radio" name="insulation_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are insulation/refractory materials properly inspected and tested?</td><td><input type="radio" name="insulation_3"></td><td><input type="radio" name="insulation_3"></td><td><input type="text"></td></tr>
+                <tr><td>4</td><td>Are insulation/refractory operations properly monitored and controlled?</td><td><input type="radio" name="insulation_4"></td><td><input type="radio" name="insulation_4"></td><td><input type="text"></td></tr>
+                <tr><td>5</td><td>Are insulation/refractory personnel trained and qualified?</td><td><input type="radio" name="insulation_5"></td><td><input type="radio" name="insulation_5"></td><td><input type="text"></td></tr>
+                <tr><td>6</td><td>Are insulation/refractory equipment properly maintained?</td><td><input type="radio" name="insulation_6"></td><td><input type="radio" name="insulation_6"></td><td><input type="text"></td></tr>
+                <tr><td>7</td><td>Are insulation/refractory activities properly documented?</td><td><input type="radio" name="insulation_7"></td><td><input type="radio" name="insulation_7"></td><td><input type="text"></td></tr>
+                <tr><td>8</td><td>Are insulation/refractory activities properly documented?</td><td><input type="radio" name="insulation_8"></td><td><input type="radio" name="insulation_8"></td><td><input type="text"></td></tr>
+                <tr><td>9</td><td>Are insulation/refractory defects and damage properly reported?</td><td><input type="radio" name="insulation_9"></td><td><input type="radio" name="insulation_9"></td><td><input type="text"></td></tr>
+                <tr><td>10</td><td>Are insulation/refractory corrective actions properly taken?</td><td><input type="radio" name="insulation_10"></td><td><input type="radio" name="insulation_10"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">17. Static Equipment</th></tr>
+                <tr><td>1</td><td>Is a static equipment plan established and documented?</td><td><input type="radio" name="static_equipment_1"></td><td><input type="radio" name="static_equipment_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are static equipment activities conducted safely?</td><td><input type="radio" name="static_equipment_2"></td><td><input type="radio" name="static_equipment_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are static equipment materials properly inspected and tested?</td><td><input type="radio" name="static_equipment_3"></td><td><input type="radio" name="static_equipment_3"></td><td><input type="text"></td></tr>
+                <tr><td>4</td><td>Are static equipment operations properly monitored and controlled?</td><td><input type="radio" name="static_equipment_4"></td><td><input type="radio" name="static_equipment_4"></td><td><input type="text"></td></tr>
+                <tr><td>5</td><td>Are static equipment personnel trained and qualified?</td><td><input type="radio" name="static_equipment_5"></td><td><input type="radio" name="static_equipment_5"></td><td><input type="text"></td></tr>
+                <tr><td>6</td><td>Are static equipment equipment properly maintained?</td><td><input type="radio" name="static_equipment_6"></td><td><input type="radio" name="static_equipment_6"></td><td><input type="text"></td></tr>
+                <tr><td>7</td><td>Are static equipment activities properly documented?</td><td><input type="radio" name="static_equipment_7"></td><td><input type="radio" name="static_equipment_7"></td><td><input type="text"></td></tr>
+                <tr><td>8</td><td>Are static equipment activities properly documented?</td><td><input type="radio" name="static_equipment_8"></td><td><input type="radio" name="static_equipment_8"></td><td><input type="text"></td></tr>
+                <tr><td>9</td><td>Are static equipment defects and damage properly reported?</td><td><input type="radio" name="static_equipment_9"></td><td><input type="radio" name="static_equipment_9"></td><td><input type="text"></td></tr>
+                <tr><td>10</td><td>Are static equipment corrective actions properly taken?</td><td><input type="radio" name="static_equipment_10"></td><td><input type="radio" name="static_equipment_10"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">18. Rotating Equipment</th></tr>
+                <tr><td>1</td><td>Is a rotating equipment plan established and documented?</td><td><input type="radio" name="rotating_equipment_1"></td><td><input type="radio" name="rotating_equipment_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are rotating equipment activities conducted safely?</td><td><input type="radio" name="rotating_equipment_2"></td><td><input type="radio" name="rotating_equipment_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are rotating equipment materials properly inspected and tested?</td><td><input type="radio" name="rotating_equipment_3"></td><td><input type="radio" name="rotating_equipment_3"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">19. Equipment Refurbishment</th></tr>
+                <tr><td>1</td><td>Is an equipment refurbishment plan established and documented?</td><td><input type="radio" name="equipment_refurbishment_1"></td><td><input type="radio" name="equipment_refurbishment_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are equipment refurbishment activities conducted safely?</td><td><input type="radio" name="equipment_refurbishment_2"></td><td><input type="radio" name="equipment_refurbishment_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are equipment refurbishment materials properly inspected and tested?</td><td><input type="radio" name="equipment_refurbishment_3"></td><td><input type="radio" name="equipment_refurbishment_3"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">20. HVAC</th></tr>
+                <tr><td>1</td><td>Is an HVAC plan established and documented?</td><td><input type="radio" name="hvac_1"></td><td><input type="radio" name="hvac_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are HVAC activities conducted safely?</td><td><input type="radio" name="hvac_2"></td><td><input type="radio" name="hvac_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are HVAC materials properly inspected and tested?</td><td><input type="radio" name="hvac_3"></td><td><input type="radio" name="hvac_3"></td><td><input type="text"></td></tr>
+                <tr><td>4</td><td>Are HVAC operations properly monitored and controlled?</td><td><input type="radio" name="hvac_4"></td><td><input type="radio" name="hvac_4"></td><td><input type="text"></td></tr>
+                <tr><td>5</td><td>Are HVAC personnel trained and qualified?</td><td><input type="radio" name="hvac_5"></td><td><input type="radio" name="hvac_5"></td><td><input type="text"></td></tr>
+                <tr><td>6</td><td>Are HVAC equipment properly maintained?</td><td><input type="radio" name="hvac_6"></td><td><input type="radio" name="hvac_6"></td><td><input type="text"></td></tr>
+                <tr><td>7</td><td>Are HVAC activities properly documented?</td><td><input type="radio" name="hvac_7"></td><td><input type="radio" name="hvac_7"></td><td><input type="text"></td></tr>
+                <tr><td>8</td><td>Are HVAC quality records properly maintained?</td><td><input type="radio" name="hvac_8"></td><td><input type="radio" name="hvac_8"></td><td><input type="text"></td></tr>
+                <tr><td>9</td><td>Are HVAC defects and damage properly reported?</td><td><input type="radio" name="hvac_9"></td><td><input type="radio" name="hvac_9"></td><td><input type="text"></td></tr>
+                <tr><td>10</td><td>Are HVAC corrective actions properly taken?</td><td><input type="radio" name="hvac_10"></td><td><input type="radio" name="hvac_10"></td><td><input type="text"></td></tr>
+                <tr><td>11</td><td>Are HVAC test reports properly reviewed?</td><td><input type="radio" name="hvac_11"></td><td><input type="radio" name="hvac_11"></td><td><input type="text"></td></tr>
+                <tr><td>12</td><td>Are HVAC inspection and test procedures properly followed?</td><td><input type="radio" name="hvac_12"></td><td><input type="radio" name="hvac_12"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">21. Electrical</th></tr>
+                <tr><td>1</td><td>Is an electrical plan established and documented?</td><td><input type="radio" name="electrical_1"></td><td><input type="radio" name="electrical_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are electrical activities conducted safely?</td><td><input type="radio" name="electrical_2"></td><td><input type="radio" name="electrical_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are electrical materials properly inspected and tested?</td><td><input type="radio" name="electrical_3"></td><td><input type="radio" name="electrical_3"></td><td><input type="text"></td></tr>
+                <tr><td>4</td><td>Are electrical operations properly monitored and controlled?</td><td><input type="radio" name="electrical_4"></td><td><input type="radio" name="electrical_4"></td><td><input type="text"></td></tr>
+                <tr><td>5</td><td>Are electrical personnel trained and qualified?</td><td><input type="radio" name="electrical_5"></td><td><input type="radio" name="electrical_5"></td><td><input type="text"></td></tr>
+                <tr><td>6</td><td>Are electrical equipment properly maintained?</td><td><input type="radio" name="electrical_6"></td><td><input type="radio" name="electrical_6"></td><td><input type="text"></td></tr>
+                <tr><td>7</td><td>Are electrical activities properly documented?</td><td><input type="radio" name="electrical_7"></td><td><input type="radio" name="electrical_7"></td><td><input type="text"></td></tr>
+                <tr><td>8</td><td>Are electrical quality records properly maintained?</td><td><input type="radio" name="electrical_8"></td><td><input type="radio" name="electrical_8"></td><td><input type="text"></td></tr>
+                <tr><td>9</td><td>Are electrical defects and damage properly reported?</td><td><input type="radio" name="electrical_9"></td><td><input type="radio" name="electrical_9"></td><td><input type="text"></td></tr>
+                <tr><td>10</td><td>Are electrical corrective actions properly taken?</td><td><input type="radio" name="electrical_10"></td><td><input type="radio" name="electrical_10"></td><td><input type="text"></td></tr>
+                <tr><td>11</td><td>Are electrical test reports properly reviewed?</td><td><input type="radio" name="electrical_11"></td><td><input type="radio" name="electrical_11"></td><td><input type="text"></td></tr>
+                <tr><td>12</td><td>Are electrical inspection and test procedures properly followed?</td><td><input type="radio" name="electrical_12"></td><td><input type="radio" name="electrical_12"></td><td><input type="text"></td></tr>
+                <tr><td>13</td><td>Are electrical non-conformities properly addressed?</td><td><input type="radio" name="electrical_13"></td><td><input type="radio" name="electrical_13"></td><td><input type="text"></td></tr>
+                <tr><td>14</td><td>Are electrical supplier qualifications properly verified?</td><td><input type="radio" name="electrical_14"></td><td><input type="radio" name="electrical_14"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">22. Instrumentation</th></tr>
+                <tr><td>1</td><td>Is an instrumentation plan established and documented?</td><td><input type="radio" name="instrumentation_1"></td><td><input type="radio" name="instrumentation_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are instrumentation activities conducted safely?</td><td><input type="radio" name="instrumentation_2"></td><td><input type="radio" name="instrumentation_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are instrumentation materials properly inspected and tested?</td><td><input type="radio" name="instrumentation_3"></td><td><input type="radio" name="instrumentation_3"></td><td><input type="text"></td></tr>
+                <tr><td>4</td><td>Are instrumentation operations properly monitored and controlled?</td><td><input type="radio" name="instrumentation_4"></td><td><input type="radio" name="instrumentation_4"></td><td><input type="text"></td></tr>
+                <tr><td>5</td><td>Are instrumentation personnel trained and qualified?</td><td><input type="radio" name="instrumentation_5"></td><td><input type="radio" name="instrumentation_5"></td><td><input type="text"></td></tr>
+                <tr><td>6</td><td>Are instrumentation equipment properly maintained?</td><td><input type="radio" name="instrumentation_6"></td><td><input type="radio" name="instrumentation_6"></td><td><input type="text"></td></tr>
+                <tr><td>7</td><td>Are instrumentation activities properly documented?</td><td><input type="radio" name="instrumentation_7"></td><td><input type="radio" name="instrumentation_7"></td><td><input type="text"></td></tr>
+
+                <tr><th colspan="5">23. Fireproofing</th></tr>
+                <tr><td>1</td><td>Is a fireproofing plan established and documented?</td><td><input type="radio" name="fireproofing_1"></td><td><input type="radio" name="fireproofing_1"></td><td><input type="text"></td></tr>
+                <tr><td>2</td><td>Are fireproofing activities conducted safely?</td><td><input type="radio" name="fireproofing_2"></td><td><input type="radio" name="fireproofing_2"></td><td><input type="text"></td></tr>
+                <tr><td>3</td><td>Are fireproofing materials properly inspected and tested?</td><td><input type="radio" name="fireproofing_3"></td><td><input type="radio" name="fireproofing_3"></td><td><input type="text"></td></tr>
+                <tr><td>4</td><td>Are fireproofing operations properly monitored and controlled?</td><td><input type="radio" name="fireproofing_4"></td><td><input type="radio" name="fireproofing_4"></td><td><input type="text"></td></tr>
+                <tr><td>5</td><td>Are fireproofing personnel trained and qualified?</td><td><input type="radio" name="fireproofing_5"></td><td><input type="radio" name="fireproofing_5"></td><td><input type="text"></td></tr>
+                <tr><td>6</td><td>Are fireproofing equipment properly maintained?</td><td><input type="radio" name="fireproofing_6"></td><td><input type="radio" name="fireproofing_6"></td><td><input type="text"></td></tr>
+                <tr><td>7</td><td>Are fireproofing activities properly documented?</td><td><input type="radio" name="fireproofing_7"></td><td><input type="radio" name="fireproofing_7"></td><td><input type="text"></td></tr>
+                <tr><td>8</td><td>Are fireproofing quality records properly maintained?</td><td><input type="radio" name="fireproofing_8"></td><td><input type="radio" name="fireproofing_8"></td><td><input type="text"></td></tr>
+                <tr><td>9</td><td>Are fireproofing defects and damage properly reported?</td><td><input type="radio" name="fireproofing_9"></td><td><input type="radio" name="fireproofing_9"></td><td><input type="text"></td></tr>
+                <tr><td>10</td><td>Are fireproofing corrective actions properly taken?</td><td><input type="radio" name="fireproofing_10"></td><td><input type="radio" name="fireproofing_10"></td><td><input type="text"></td></tr>
+
+                <!-- Upload Photo Documentation -->
+                <tr>
+                    <th colspan="5">Upload Photo Documentation</th>
+                </tr>
+                <tr>
+                    <td colspan="5" class="upload-section">
+                        <input type="file" id="photo-upload" accept="image/*" multiple>
+                    </td>
+                </tr>
+
+                <!-- Image Preview -->
+                <tr>
+                    <td colspan="5">
+                        <img id="uploaded-photo-preview" style="display:none; max-width: 500px; max-height: 500px;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Download Result Button -->
+        <button class="download-btn" onclick="downloadResult()">Download Result</button>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 InspectoPro. All Rights Reserved.
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
